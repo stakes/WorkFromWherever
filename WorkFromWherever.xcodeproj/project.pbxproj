@@ -12,6 +12,8 @@
 		C89917E125E326B3002D1D66 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C89917E025E326B3002D1D66 /* Assets.xcassets */; };
 		C89917E425E326B3002D1D66 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C89917E325E326B3002D1D66 /* Preview Assets.xcassets */; };
 		C89917F025E32CB1002D1D66 /* AudioKit in Frameworks */ = {isa = PBXBuildFile; productRef = C89917EF25E32CB1002D1D66 /* AudioKit */; };
+		C89917FA25E342B7002D1D66 /* Sounds in Resources */ = {isa = PBXBuildFile; fileRef = C89917F925E342B7002D1D66 /* Sounds */; };
+		C89917FF25E34517002D1D66 /* SoundMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = C89917FE25E34517002D1D66 /* SoundMachine.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		C89917E325E326B3002D1D66 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		C89917E525E326B3002D1D66 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C89917E625E326B3002D1D66 /* WorkFromWherever.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WorkFromWherever.entitlements; sourceTree = "<group>"; };
+		C89917F925E342B7002D1D66 /* Sounds */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Sounds; sourceTree = "<group>"; };
+		C89917FE25E34517002D1D66 /* SoundMachine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundMachine.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,12 +59,14 @@
 		C89917DB25E326B2002D1D66 /* WorkFromWherever */ = {
 			isa = PBXGroup;
 			children = (
+				C89917F925E342B7002D1D66 /* Sounds */,
 				C89917DC25E326B2002D1D66 /* WorkFromWhereverApp.swift */,
 				C89917DE25E326B2002D1D66 /* ContentView.swift */,
 				C89917E025E326B3002D1D66 /* Assets.xcassets */,
 				C89917E525E326B3002D1D66 /* Info.plist */,
 				C89917E625E326B3002D1D66 /* WorkFromWherever.entitlements */,
 				C89917E225E326B3002D1D66 /* Preview Content */,
+				C89917FE25E34517002D1D66 /* SoundMachine.swift */,
 			);
 			path = WorkFromWherever;
 			sourceTree = "<group>";
@@ -136,6 +142,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C89917FA25E342B7002D1D66 /* Sounds in Resources */,
 				C89917E425E326B3002D1D66 /* Preview Assets.xcassets in Resources */,
 				C89917E125E326B3002D1D66 /* Assets.xcassets in Resources */,
 			);
@@ -149,6 +156,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C89917DF25E326B2002D1D66 /* ContentView.swift in Sources */,
+				C89917FF25E34517002D1D66 /* SoundMachine.swift in Sources */,
 				C89917DD25E326B2002D1D66 /* WorkFromWhereverApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

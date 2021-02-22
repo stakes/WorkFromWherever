@@ -25,6 +25,7 @@ let placeData:[Place] = [
 ]
 
 struct ContentView: View {
+    var sm = SoundMachine()
     var places = placeData
     var body: some View {
         NavigationView {
@@ -72,6 +73,8 @@ struct Sidebar: View {
 
 struct MainView: View {
     @State var place:Place
+
+    
     var body: some View {
         VStack {
             Text(place.title).font(.largeTitle)
@@ -90,6 +93,7 @@ func toggleSidebar() {
 struct Fader: View {
     @State var sound:Sound
     @State private var volume = 50.0
+
     var body: some View {
         VStack {
             Slider(value: $volume, in: 0...100)
