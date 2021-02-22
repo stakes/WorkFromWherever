@@ -25,9 +25,7 @@ let placeData:[Place] = [
 ]
 
 struct ContentView: View {
-    
     var places = placeData
-    
     var body: some View {
         NavigationView {
             Sidebar(places: places, selectedPlace: places[0])
@@ -73,17 +71,29 @@ struct Sidebar: View {
 }
 
 struct MainView: View {
-    
     @State var place:Place
-    
     var body: some View {
-        ZStack {
-            Text(place.title)
-        }
+        VStack {
+            Text(place.title).font(.largeTitle)
+            HStack {
+                Fader(sound: Sound(title: "Background"))
+                Fader(sound: Sound(title: "Ambiance"))
+            }
+        }.navigationTitle(place.title)
     }
 }
 
-// Toggle Sidebar Function
 func toggleSidebar() {
-        NSApp.keyWindow?.firstResponder?.tryToPerform(#selector(NSSplitViewController.toggleSidebar(_:)), with: nil)
+    NSApp.keyWindow?.firstResponder?.tryToPerform(#selector(NSSplitViewController.toggleSidebar(_:)), with: nil)
+}
+
+struct Fader: View {
+    @State var sound:Sound
+    @State private var volume = 50.0
+    var body: some View {
+        VStack {
+            Slider(value: $volume, in: 0...100)
+            Text(sound.title)
+        }
+    }
 }
