@@ -7,15 +7,23 @@
 
 import SwiftUI
 
-struct Sound: Hashable {
+struct Sound: Identifiable, Hashable {
+    var id = UUID()
     var title: String
+    var path: String
 }
 
 struct Place: Identifiable, Hashable {
     var id = UUID()
     var title: String
-    var places: [Place]?
+    var sounds: [Sound]?
 }
+
+let coffeeShopSounds = [
+    Sound(title: "background", path: "Sounds/OS_ORG_Field_Atmos_Coffee_House.wav"),
+    Sound(title: "foreground", path: "Sounds/BRS_Activity_Bartender_The_Boat_Clean_Up_Bg_Crowd.wav"),
+    Sound(title: "music", path: "Sounds/LZ_vocal_group_prismizer_chords_120_C.wav")
+]
 
 let placeData:[Place] = [
     Place(title: "Coffee Shop"),
@@ -29,7 +37,7 @@ struct ContentView: View {
     var places = placeData
     var body: some View {
         NavigationView {
-            Sidebar(places: places, selectedPlace: places[0])
+            Sidebar(soundMachine: sm, places: places, selectedPlace: places[0])
             ZStack {
                 EmptyView()
             }
@@ -44,6 +52,7 @@ struct ContentView_Previews: PreviewProvider {
 }
 
 struct Sidebar: View {
+    var soundMachine:SoundMachine
     @State var places:[Place]
     @State var selectedPlace: Place?
     var body: some View {
@@ -53,7 +62,7 @@ struct Sidebar: View {
                 
             }
             ForEach (places) { place in
-                NavigationLink(destination: MainView(place: place), tag: place, selection: $selectedPlace) {
+                NavigationLink(destination: MainView(soundMachine: soundMachine, place: place), tag: place, selection: $selectedPlace) {
                     Text(place.title)
                 }.navigationTitle(place.title)
             }
@@ -72,15 +81,15 @@ struct Sidebar: View {
 }
 
 struct MainView: View {
+    var soundMachine:SoundMachine
     @State var place:Place
-
-    
     var body: some View {
         VStack {
             Text(place.title).font(.largeTitle)
             HStack {
-                Fader(sound: Sound(title: "Background"))
-                Fader(sound: Sound(title: "Ambiance"))
+                ForEach (coffeeShopSounds) { sound in
+                    Fader(soundMachine: soundMachine, sound: sound)
+                }
             }
         }.navigationTitle(place.title)
     }
@@ -91,8 +100,15 @@ func toggleSidebar() {
 }
 
 struct Fader: View {
+    var soundMachine:SoundMachine
     @State var sound:Sound
     @State private var volume = 50.0
+    
+    init(soundMachine:SoundMachine, sound:Sound) {
+        self.soundMachine = soundMachine
+        _sound = /*State<Sound>*/.init(initialValue: sound)
+        soundMachine.addTrack(sound.path)
+    }
 
     var body: some View {
         VStack {

@@ -22,16 +22,6 @@ class SoundMachine {
     
     init() {
         
-        soundStub.forEach { sound in
-            let snd = AudioSource(sound)
-            let buffer = snd.sourceBuffer
-            let player = AudioPlayer()
-            player.buffer = buffer
-            player.isLooping = true
-            players.append(player)
-            mixer.addInput(player)
-        }
-        
         engine.output = mixer
         do {
             try engine.start()
@@ -39,25 +29,46 @@ class SoundMachine {
             Log("AudioKit did not start! \(error)")
         }
         
-        players.forEach { player in
-            player.play()
+//        soundStub.forEach { sound in
+//            addTrack(sound)
+//        }
+//
+//        players.forEach { p in
+//            p.play()
+//        }
+
+
+    }
+    
+    func addTrack(_ path:String) {
+        let snd = AudioSource(path)
+        
+        let player = AudioPlayer()
+        try! player.load(url: snd.fileUrl!)
+        
+//        let buffer = snd.sourceBuffer
+//        player.buffer = buffer
+        
+        player.isLooping = true
+        players.append(player)
+        
+        mixer.addInput(player)
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+            player.start()
         }
 
     }
     
 }
 
-class Track {
-    
-    
-    
-}
-
 struct AudioSource {
     var audioFile: AVAudioFile?
     var sourceBuffer: AVAudioPCMBuffer?
+    var fileUrl: URL?
     init(_ file: String) {
         guard let url = Bundle.main.resourceURL?.appendingPathComponent(file) else { return }
+        fileUrl = url
         do {
             audioFile = try AVAudioFile(forReading: url)
         } catch {
