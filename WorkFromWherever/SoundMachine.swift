@@ -10,36 +10,47 @@ import AudioKit
 import AVFoundation
 
 class SoundMachine {
-    
     let engine = AudioEngine()
-    var player: AudioPlayer!
     let mixer = Mixer()
+    
+    let soundStub = [
+        "Sounds/OS_ORG_Field_Atmos_Coffee_House.wav",
+        "Sounds/BRS_Activity_Bartender_The_Boat_Clean_Up_Bg_Crowd.wav",
+        "Sounds/LZ_vocal_group_prismizer_chords_120_C.wav"
+    ]
+    var players:[AudioPlayer] = []
     
     init() {
         
-        let demo = AudioSource("Sounds/OS_ORG_Field_Atmos_Coffee_House.wav")
-//        let demo = AudioSource("Sounds/BRS_Activity_Bartender_The_Boat_Clean_Up_Bg_Crowd.wav")
-//        let demo = AudioSource("Sounds/LZ_vocal_group_prismizer_chords_120_C.wav")
+        soundStub.forEach { sound in
+            let snd = AudioSource(sound)
+            let buffer = snd.sourceBuffer
+            let player = AudioPlayer()
+            player.buffer = buffer
+            player.isLooping = true
+            players.append(player)
+            mixer.addInput(player)
+        }
         
-        let buffer = demo.sourceBuffer
-        player = AudioPlayer()
-        player.buffer = buffer
-        player.isLooping = true
-        
-        mixer.addInput(player)
         engine.output = mixer
-        
         do {
             try engine.start()
         } catch {
             Log("AudioKit did not start! \(error)")
         }
         
-        player.play()
-        
-        
-    }
+        players.forEach { player in
+            player.play()
+        }
 
+    }
+    
+}
+
+class Track {
+    
+    
+    
 }
 
 struct AudioSource {
