@@ -7,30 +7,32 @@
 
 import SwiftUI
 
-struct Sound {
+struct Sound: Hashable {
     var title: String
 }
 
-struct Place: Identifiable {
+struct Place: Identifiable, Hashable {
     var id = UUID()
     var title: String
-    var sounds: [Sound]?
+    var places: [Place]?
 }
+
+let placeData:[Place] = [
+    Place(title: "Coffee Shop"),
+    Place(title: "Office"),
+    Place(title: "Bar"),
+    Place(title: "Airport Lounge")
+]
 
 struct ContentView: View {
     
-    var places:[Place] = [
-        Place(title: "Coffee Shop"),
-        Place(title: "Office"),
-        Place(title: "Bar"),
-        Place(title: "Airport Lounge")
-    ]
+    var places = placeData
     
     var body: some View {
         NavigationView {
-            Sidebar(places: places)
+            Sidebar(places: places, selectedPlace: places[0])
             ZStack {
-                MainView(place: places[0])
+                EmptyView()
             }
         }
     }
@@ -44,6 +46,7 @@ struct ContentView_Previews: PreviewProvider {
 
 struct Sidebar: View {
     @State var places:[Place]
+    @State var selectedPlace: Place?
     var body: some View {
         List {
             Group {
@@ -51,9 +54,9 @@ struct Sidebar: View {
                 
             }
             ForEach (places) { place in
-                NavigationLink(destination: MainView(place: place)) {
+                NavigationLink(destination: MainView(place: place), tag: place, selection: $selectedPlace) {
                     Text(place.title)
-                }
+                }.navigationTitle(place.title)
             }
         }
         .listStyle(SidebarListStyle())
