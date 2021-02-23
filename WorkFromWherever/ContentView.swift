@@ -101,18 +101,21 @@ func toggleSidebar() {
 
 struct Fader: View {
     var soundMachine:SoundMachine
+    @State var track:Track
     @State var sound:Sound
-    @State private var volume = 50.0
+    @State private var volume = 0.5
     
     init(soundMachine:SoundMachine, sound:Sound) {
         self.soundMachine = soundMachine
         _sound = /*State<Sound>*/.init(initialValue: sound)
-        soundMachine.addTrack(sound.path)
+        _track = .init(initialValue: Track(path: sound.path))
+        soundMachine.addTrack(track)
     }
 
     var body: some View {
         VStack {
-            Slider(value: $volume, in: 0...100)
+            
+            Slider(value: $track.volume, in: 0...1)
             Text(sound.title)
         }
     }

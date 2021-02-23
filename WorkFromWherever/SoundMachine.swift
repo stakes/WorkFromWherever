@@ -40,26 +40,43 @@ class SoundMachine {
 
     }
     
-    func addTrack(_ path:String) {
-        let snd = AudioSource(path)
+    func addTrack(_ track:Track) {
+        players.append(track.player)
+        mixer.addInput(track.player)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+            track.player.start()
+        }
+    }
+    
+    func createAndAddTrack(_ path:String) {
+        let track = Track(path: path)
+        players.append(track.player)
         
-        let player = AudioPlayer()
-        try! player.load(url: snd.fileUrl!)
-        
-//        let buffer = snd.sourceBuffer
-//        player.buffer = buffer
-        
-        player.isLooping = true
-        players.append(player)
-        
-        mixer.addInput(player)
+        mixer.addInput(track.player)
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-            player.start()
+            track.player.start()
         }
 
     }
     
+}
+
+class Track:ObservableObject {
+    let player = AudioPlayer()
+    
+    @Published var volume: Float = 0.5 {
+        didSet {
+            player.volume = volume
+        }
+    }
+    
+    init(path:String) {
+        let snd = AudioSource(path)
+        try! player.load(url: snd.fileUrl!)
+        player.isLooping = true
+        player.volume = volume
+    }
 }
 
 struct AudioSource {
