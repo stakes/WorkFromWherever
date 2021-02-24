@@ -9,6 +9,31 @@ import Foundation
 import AudioKit
 import AVFoundation
 
+class SoundManager {
+    let engine = AVAudioEngine()
+    let mixer = AVAudioMixerNode()
+    
+    init() {
+        engine.attach(mixer)
+        engine.connect(mixer, to: engine.outputNode, format: nil)
+        do {
+            try engine.start()
+        } catch {
+            Log("Engine didn't start: \(error)")
+        }
+    }
+    
+    func addTrack(_ track:Track) {
+        engine.attach(track.player)
+        engine.connect(track.player, to: mixer, format: nil)
+        track.play()
+    }
+    
+    deinit {
+        print("BYEEEEE")
+    }
+}
+
 class SoundMachine {
 //    let engine = AudioEngine()
 //    let mixer = Mixer()
@@ -26,7 +51,7 @@ class SoundMachine {
         do {
             try engine.start()
         } catch {
-            Log("AudioKit did not start! \(error)")
+            Log("Engine didn't start: \(error)")
         }
     }
     
@@ -46,9 +71,12 @@ class SoundMachine {
     }
     
     func removeAllTracks() {
-//        mixer.removeAllInputs()
-//        tracks = []
-//        players = []
+        engine.stop()
+        do {
+            try engine.start()
+        } catch {
+            Log("Engine didn't restart: \(error)")
+        }
     }
     
 }

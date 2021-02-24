@@ -66,7 +66,7 @@ struct Sidebar: View {
                 
             }
             ForEach (places) { place in
-                NavigationLink(destination: MainView(soundMachine: soundMachine, place: place), tag: place, selection: $selectedPlace) {
+                NavigationLink(destination: LinkPresenter { MainView(soundMachine: soundMachine, place: place) }, tag: place, selection: $selectedPlace) {
                     Text(place.title)
                 }.navigationTitle(place.title)
             }
@@ -86,16 +86,20 @@ struct Sidebar: View {
 
 struct MainView: View {
     var soundMachine:SoundMachine
+    let soundManager = SoundManager()
     @State var place:Place
     var body: some View {
         VStack {
             Text(place.title).font(.largeTitle)
             HStack {
                 ForEach (place.sounds ?? []) { sound in
-                    Fader(soundMachine: soundMachine, sound: sound)
+                    Fader(soundManager: soundManager, sound: sound)
                 }
             }
         }.navigationTitle(place.title)
+        .onDisappear {
+            soundMachine.removeAllTracks()
+        }
     }
 }
 
@@ -104,27 +108,43 @@ func toggleSidebar() {
 }
 
 struct Fader: View {
-    var soundMachine:SoundMachine
+    var soundManager:SoundManager
     @State var track:Track
     @State var sound:Sound
     @State private var volume = 0.5
     
-    init(soundMachine:SoundMachine, sound:Sound) {
-        self.soundMachine = soundMachine
+    init(soundManager:SoundManager, sound:Sound) {
+        self.soundManager = soundManager
         _sound = /*State<Sound>*/.init(initialValue: sound)
         _track = .init(initialValue: Track(path: sound.path))
-        soundMachine.addTrack(track)
+        soundManager.addTrack(track)
         print("Creating Fader for \(sound.path)")
     }
 
     var body: some View {
         VStack {
-            
             Slider(value: $track.volume, in: 0...1)
             Text(sound.title)
         }
-        .onDisappear {
-            soundMachine.removeAllTracks()
+    }
+}
+
+
+struct LinkPresenter<Content: View>: View {
+    let content: () -> Content
+
+    @State private var invalidated = false
+    init(@ViewBuilder _ content: @escaping () -> Content) {
+        self.content = content
+    }
+    var body: some View {
+        Group {
+            if self.invalidated {
+                EmptyView()
+            } else {
+                content()
+            }
         }
+        .onDisappear { self.invalidated = true }
     }
 }
