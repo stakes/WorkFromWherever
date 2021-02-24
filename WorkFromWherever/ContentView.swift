@@ -22,13 +22,17 @@ struct Place: Identifiable, Hashable {
 let coffeeShopSounds = [
     Sound(title: "background", path: "Sounds/OS_ORG_Field_Atmos_Coffee_House.wav"),
     Sound(title: "foreground", path: "Sounds/BRS_Activity_Bartender_The_Boat_Clean_Up_Bg_Crowd.wav"),
+]
+
+let barSounds = [
+    Sound(title: "music", path: "Sounds/LZ_vocal_group_prismizer_chords_120_C.wav"),
     Sound(title: "music", path: "Sounds/LZ_vocal_group_prismizer_chords_120_C.wav")
 ]
 
 let placeData:[Place] = [
-    Place(title: "Coffee Shop"),
+    Place(title: "Coffee Shop", sounds: coffeeShopSounds),
     Place(title: "Office"),
-    Place(title: "Bar"),
+    Place(title: "Bar", sounds: barSounds),
     Place(title: "Airport Lounge")
 ]
 
@@ -87,7 +91,7 @@ struct MainView: View {
         VStack {
             Text(place.title).font(.largeTitle)
             HStack {
-                ForEach (coffeeShopSounds) { sound in
+                ForEach (place.sounds ?? []) { sound in
                     Fader(soundMachine: soundMachine, sound: sound)
                 }
             }
@@ -110,6 +114,7 @@ struct Fader: View {
         _sound = /*State<Sound>*/.init(initialValue: sound)
         _track = .init(initialValue: Track(path: sound.path))
         soundMachine.addTrack(track)
+        print("Creating Fader for \(sound.path)")
     }
 
     var body: some View {
@@ -117,6 +122,9 @@ struct Fader: View {
             
             Slider(value: $track.volume, in: 0...1)
             Text(sound.title)
+        }
+        .onDisappear {
+            soundMachine.removeAllTracks()
         }
     }
 }

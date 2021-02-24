@@ -13,6 +13,7 @@ class SoundMachine {
     let engine = AudioEngine()
     let mixer = Mixer()
 
+    var tracks:[Track] = []
     var players:[AudioPlayer] = []
     
     init() {
@@ -25,7 +26,9 @@ class SoundMachine {
     }
     
     func addTrack(_ track:Track) {
-        players.append(track.player)
+        print("add \(track)")
+        print(mixer.connections)
+        tracks.append(track)
         mixer.addInput(track.player)
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
             track.player.start()
@@ -34,11 +37,17 @@ class SoundMachine {
     
     func createAndAddTrack(_ path:String) {
         let track = Track(path: path)
-        players.append(track.player)
+        tracks.append(track)
         mixer.addInput(track.player)
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
             track.player.start()
         }
+    }
+    
+    func removeAllTracks() {
+        mixer.removeAllInputs()
+        tracks = []
+        players = []
     }
     
 }
