@@ -10,14 +10,19 @@ import AudioKit
 import AVFoundation
 
 class SoundMachine {
-    let engine = AudioEngine()
-    let mixer = Mixer()
+//    let engine = AudioEngine()
+//    let mixer = Mixer()
 
     var tracks:[Track] = []
-    var players:[AudioPlayer] = []
+//    var players:[AudioPlayer] = []
+    
+    let engine = AVAudioEngine()
+    let mixer = AVAudioMixerNode()
+    
     
     init() {
-        engine.output = mixer
+        engine.attach(mixer)
+        engine.connect(mixer, to: engine.outputNode, format: nil)
         do {
             try engine.start()
         } catch {
@@ -26,28 +31,24 @@ class SoundMachine {
     }
     
     func addTrack(_ track:Track) {
-        print("add \(track)")
-        print(mixer.connections)
-        tracks.append(track)
-        mixer.addInput(track.player)
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-            track.player.start()
-        }
+        engine.attach(track.player)
+        engine.connect(track.player, to: mixer, format: nil)
+        track.play()
     }
     
     func createAndAddTrack(_ path:String) {
-        let track = Track(path: path)
-        tracks.append(track)
-        mixer.addInput(track.player)
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-            track.player.start()
-        }
+//        let track = Track(path: path)
+//        tracks.append(track)
+//        mixer.addInput(track.player)
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+//            track.player.start()
+//        }
     }
     
     func removeAllTracks() {
-        mixer.removeAllInputs()
-        tracks = []
-        players = []
+//        mixer.removeAllInputs()
+//        tracks = []
+//        players = []
     }
     
 }

@@ -10,7 +10,8 @@ import AudioKit
 import AVFoundation
 
 class Track:ObservableObject {
-    let player = AudioPlayer()
+    var filePath:String?
+    let player = AVAudioPlayerNode()
     
     @Published var volume: Float = 0.5 {
         didSet {
@@ -19,10 +20,13 @@ class Track:ObservableObject {
     }
     
     init(path:String) {
-        let snd = AudioSource(path)
-        try! player.load(url: snd.fileUrl!)
-        player.isLooping = true
-        player.volume = volume
+        filePath = path
+    }
+    
+    func play() {
+        let snd = AudioSource(filePath!)
+        player.scheduleFile(snd.audioFile!, at: nil, completionHandler: nil)
+        player.play(at: nil)
     }
 }
 
