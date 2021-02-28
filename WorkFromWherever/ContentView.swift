@@ -24,24 +24,34 @@ let coffeeShopSounds = [
     Sound(title: "foreground", path: "Sounds/BRS_Activity_Bartender_The_Boat_Clean_Up_Bg_Crowd.wav"),
 ]
 
+let officeSounds = [
+    Sound(title: "office vibe", path: "Sounds/OfficeWallaLight_SFXB.128.wav"),
+    Sound(title: "printer", path: "Sounds/PrinterPrint_S08OF.407.wav"),
+    Sound(title: "clicky keyboard", path: "Sounds/ESM_Computer_Keyboard_Typing_3_Office_Click_Secretary_Working_Homework_Clacking.wav")
+]
+
 let barSounds = [
-    Sound(title: "music", path: "Sounds/LZ_vocal_group_prismizer_chords_120_C.wav"),
     Sound(title: "music", path: "Sounds/LZ_vocal_group_prismizer_chords_120_C.wav")
+]
+
+let planeSounds = [
+    Sound(title: "engines", path: "Sounds/AirplaneInterior_SFXB.4192.wav"),
+    Sound(title: "people", path: "Sounds/BRS_Crowd_Office_Wardrop_Guy_on_Phone.wav")
 ]
 
 let placeData:[Place] = [
     Place(title: "Coffee Shop", sounds: coffeeShopSounds),
-    Place(title: "Office"),
+    Place(title: "Office", sounds: officeSounds),
     Place(title: "Bar", sounds: barSounds),
-    Place(title: "Airport Lounge")
+    Place(title: "Airplane", sounds: planeSounds)
 ]
 
 struct ContentView: View {
-    var sm = SoundMachine()
     var places = placeData
     var body: some View {
         NavigationView {
-            Sidebar(soundMachine: sm, places: places, selectedPlace: places[0])
+            Sidebar(places: places, selectedPlace: places[0])
+//                .background(Color(NSColor.textBackgroundColor))
             ZStack {
                 EmptyView()
             }
@@ -56,7 +66,6 @@ struct ContentView_Previews: PreviewProvider {
 }
 
 struct Sidebar: View {
-    var soundMachine:SoundMachine
     @State var places:[Place]
     @State var selectedPlace: Place?
     var body: some View {
@@ -66,7 +75,7 @@ struct Sidebar: View {
                 
             }
             ForEach (places) { place in
-                NavigationLink(destination: LinkPresenter { MainView(soundMachine: soundMachine, place: place) }, tag: place, selection: $selectedPlace) {
+                NavigationLink(destination: LinkPresenter { MainView(place: place) }, tag: place, selection: $selectedPlace) {
                     Text(place.title)
                 }.navigationTitle(place.title)
             }
@@ -85,11 +94,11 @@ struct Sidebar: View {
 }
 
 struct MainView: View {
-    var soundMachine:SoundMachine
     let soundManager = SoundManager()
     @State var place:Place
     var body: some View {
         VStack {
+            
             Text(place.title).font(.largeTitle)
             HStack {
                 ForEach (place.sounds ?? []) { sound in
@@ -97,9 +106,6 @@ struct MainView: View {
                 }
             }
         }.navigationTitle(place.title)
-        .onDisappear {
-            soundMachine.removeAllTracks()
-        }
     }
 }
 

@@ -13,7 +13,7 @@ class Track:ObservableObject {
     var filePath:String?
     let player = AVAudioPlayerNode()
     
-    @Published var volume: Float = 0.5 {
+    @Published var volume: Float = 0.0 {
         didSet {
             player.volume = volume
         }
@@ -26,6 +26,7 @@ class Track:ObservableObject {
     func play() {
         let snd = AudioSource(filePath!)
         player.scheduleFile(snd.audioFile!, at: nil, completionHandler: nil)
+        player.volume = volume
         player.play(at: nil)
     }
 }
