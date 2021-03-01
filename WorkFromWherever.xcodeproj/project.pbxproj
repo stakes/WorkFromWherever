@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C836D78D25EC535E0015160F /* VolumeKnob.swift in Sources */ = {isa = PBXBuildFile; fileRef = C836D78C25EC535E0015160F /* VolumeKnob.swift */; };
+		C836D79225EC54FD0015160F /* Sliders in Frameworks */ = {isa = PBXBuildFile; productRef = C836D79125EC54FD0015160F /* Sliders */; };
 		C89917DD25E326B2002D1D66 /* WorkFromWhereverApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C89917DC25E326B2002D1D66 /* WorkFromWhereverApp.swift */; };
 		C89917DF25E326B2002D1D66 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C89917DE25E326B2002D1D66 /* ContentView.swift */; };
 		C89917E125E326B3002D1D66 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C89917E025E326B3002D1D66 /* Assets.xcassets */; };
@@ -18,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C836D78C25EC535E0015160F /* VolumeKnob.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolumeKnob.swift; sourceTree = "<group>"; };
 		C89917D925E326B2002D1D66 /* WorkFromWherever.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WorkFromWherever.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C89917DC25E326B2002D1D66 /* WorkFromWhereverApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkFromWhereverApp.swift; sourceTree = "<group>"; };
 		C89917DE25E326B2002D1D66 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -36,6 +39,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C89917F025E32CB1002D1D66 /* AudioKit in Frameworks */,
+				C836D79225EC54FD0015160F /* Sliders in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,6 +74,7 @@
 				C89917E225E326B3002D1D66 /* Preview Content */,
 				C89917FE25E34517002D1D66 /* SoundManager.swift */,
 				C899180325E4AF70002D1D66 /* Track.swift */,
+				C836D78C25EC535E0015160F /* VolumeKnob.swift */,
 			);
 			path = WorkFromWherever;
 			sourceTree = "<group>";
@@ -100,6 +105,7 @@
 			name = WorkFromWherever;
 			packageProductDependencies = (
 				C89917EF25E32CB1002D1D66 /* AudioKit */,
+				C836D79125EC54FD0015160F /* Sliders */,
 			);
 			productName = WorkFromWherever;
 			productReference = C89917D925E326B2002D1D66 /* WorkFromWherever.app */;
@@ -130,6 +136,7 @@
 			mainGroup = C89917D025E326B2002D1D66;
 			packageReferences = (
 				C89917EE25E32CB1002D1D66 /* XCRemoteSwiftPackageReference "AudioKit" */,
+				C836D79025EC54FD0015160F /* XCRemoteSwiftPackageReference "swiftui-sliders" */,
 			);
 			productRefGroup = C89917DA25E326B2002D1D66 /* Products */;
 			projectDirPath = "";
@@ -162,6 +169,7 @@
 				C89917FF25E34517002D1D66 /* SoundManager.swift in Sources */,
 				C89917DD25E326B2002D1D66 /* WorkFromWhereverApp.swift in Sources */,
 				C899180425E4AF70002D1D66 /* Track.swift in Sources */,
+				C836D78D25EC535E0015160F /* VolumeKnob.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -355,6 +363,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		C836D79025EC54FD0015160F /* XCRemoteSwiftPackageReference "swiftui-sliders" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/spacenation/swiftui-sliders.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 		C89917EE25E32CB1002D1D66 /* XCRemoteSwiftPackageReference "AudioKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/AudioKit/AudioKit";
@@ -366,6 +382,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		C836D79125EC54FD0015160F /* Sliders */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C836D79025EC54FD0015160F /* XCRemoteSwiftPackageReference "swiftui-sliders" */;
+			productName = Sliders;
+		};
 		C89917EF25E32CB1002D1D66 /* AudioKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = C89917EE25E32CB1002D1D66 /* XCRemoteSwiftPackageReference "AudioKit" */;

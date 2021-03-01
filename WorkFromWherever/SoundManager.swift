@@ -21,6 +21,9 @@ class SoundManager {
         } catch {
             Log("Engine didn't start: \(error)")
         }
+//        engine.mainMixerNode.installTap(onBus: 0, bufferSize: 1024, format: nil) { (buffer, time) in
+//            self.processAudioData(buffer: buffer)
+//        }
     }
     
     func addTrack(_ track:Track) {
@@ -28,4 +31,10 @@ class SoundManager {
         engine.connect(track.player, to: mixer, format: nil)
         track.play()
     }
+    
+//    func processAudioData(buffer: AVAudioPCMBuffer){
+//        guard let channelData = buffer.floatChannelData?[0] else {return}
+//        let frames = buffer.frameLength
+//        print(frames)
+//    }
 }
