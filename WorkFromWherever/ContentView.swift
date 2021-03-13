@@ -23,6 +23,8 @@ struct Place: Identifiable, Hashable {
 let coffeeShopSounds = [
     Sound(title: "background", path: "Sounds/OS_ORG_Field_Atmos_Coffee_House.wav"),
     Sound(title: "foreground", path: "Sounds/BRS_Activity_Bartender_The_Boat_Clean_Up_Bg_Crowd.wav"),
+    Sound(title: "background", path: "Sounds/OS_ORG_Field_Atmos_Coffee_House.wav"),
+    Sound(title: "foreground", path: "Sounds/BRS_Activity_Bartender_The_Boat_Clean_Up_Bg_Crowd.wav"),
 ]
 
 let officeSounds = [

@@ -13,51 +13,51 @@ struct FaderView: View {
     @State var yOffset: CGFloat = 4
     @Binding var value: CGFloat
     var body: some View {
-        ZStack {
-            GeometryReader { geometry in
-                ZStack {
-                    RoundedRectangle(cornerRadius: 40).fill(Color("backgroundColor"))
-                        .shadow(color: .black, radius: 10, x: 5, y: 5)
-                        .shadow(color: .white, radius: 10, x: -5, y: -5)
-                        .blendMode(.overlay)
-                    RoundedRectangle(cornerRadius: 40).fill(Color("backgroundColor"))
-
-                }.frame(width: 44, height: 130)
-                VStack {
-                    ZStack {
-                        Circle()
-                            .foregroundColor(Color("knobColor"))
-                            .overlay(Circle().stroke(Color("lightenedBgColor"), lineWidth: 1))
-                        Circle()
-                            .shadow(color: .black, radius: 10, x: 5, y: 5)
-                            .shadow(color: .white, radius: 10, x: -5, y: -5)
-                            .blendMode(.overlay)
-                    }
-                    .frame(width: 38, height: 38)
-                    .offset(y: yOffset)
-                    .onHover { inside in
-                        if inside {
-                            NSCursor.pointingHand.push()
-                        } else {
-                            NSCursor.pop()
+        ZStack(alignment: .center) {
+            ZStack {
+                RoundedRectangle(cornerRadius: 40).fill(Color("backgroundColor"))
+                    .shadow(color: .black, radius: 10, x: 5, y: 5)
+                    .shadow(color: .white, radius: 10, x: -5, y: -5)
+                    .blendMode(.overlay)
+                RoundedRectangle(cornerRadius: 40).fill(Color("backgroundColor"))
+                GeometryReader { geometry in
+                    VStack {
+                        ZStack {
+                            Circle()
+                                .foregroundColor(Color("knobColor"))
+                                .overlay(Circle().stroke(Color("lightenedBgColor"), lineWidth: 1))
+                            Circle()
+                                .shadow(color: .black, radius: 10, x: 5, y: 5)
+                                .shadow(color: .white, radius: 10, x: -5, y: -5)
+                                .blendMode(.overlay)
                         }
-                    }
-                    .gesture(
-                        DragGesture(minimumDistance: 0)
-                            .onChanged { value in
-                                if abs(value.translation.height) < 0.1 {
-                                    self.lastOffset = self.yOffset
-                                }
-                                let sliderPos = max(4, min(lastOffset + value.translation.height, geometry.size.height - 6 - (38*2)))
-                                self.yOffset = sliderPos
-                                let sliderVal = sliderPos.mapInverse(from: 4...(geometry.size.height - 6 - (38*2)), to: 0...1)
-                                self.value = sliderVal
+                        .frame(width: 38, height: 38)
+                        .offset(y: yOffset)
+                        .onHover { inside in
+                            if inside {
+                                NSCursor.pointingHand.push()
+                            } else {
+                                NSCursor.pop()
                             }
-                    )
-                    Spacer()
-                }.frame(width: 44, height: 130)
-            }.frame(width: 86, height: 172).background(Color("backgroundColor"))
-        }
+                        }
+                        .gesture(
+                            DragGesture(minimumDistance: 0)
+                                .onChanged { value in
+                                    if abs(value.translation.height) < 0.1 {
+                                        self.lastOffset = self.yOffset
+                                    }
+                                    let sliderPos = max(4, min(lastOffset + (value.translation.height), (geometry.size.height) - 4 - 38))
+                                    self.yOffset = sliderPos
+                                    let sliderVal = sliderPos.mapInverse(from: 4...((geometry.size.height) - 4 - 38), to: 0...1)
+                                    self.value = sliderVal
+                                }
+                        )
+                        Spacer()
+                    }.frame(width: 44, height: 130)
+                }
+            }.frame(width: 44, height: 130)
+            
+        }.frame(width: 86, height: 172).background(Color("backgroundColor"))
     }
 }
 
