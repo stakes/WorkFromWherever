@@ -67,8 +67,10 @@ let placeData:[Place] = [
 struct ContentView: View {
     var places = placeData
     var body: some View {
-        SelectorView(places: placeData)
-        FaderStack(place: placeData[0])
+        VStack {
+            SelectorView(places: placeData)
+            FaderStack(place: placeData[0])
+        }.frame(width: 540).background(Color("backgroundColor"))
     }
 }
 
@@ -82,7 +84,12 @@ struct SelectorView: View {
     @State var places:[Place]
 //    @State var selectedPlace: Place =
     var body: some View {
-        Text(places[0].title).font(.largeTitle)
+        VStack {
+            HStack {
+                Text(places[0].title).font(.system(.title3, design: .monospaced)).foregroundColor(Color.white).padding(8).padding(.leading, 12).opacity(0.8)
+                Spacer()
+            }.background(LinearGradient(gradient: Gradient(colors: [Color("screenColorStart"), Color("screenColorStop")]), startPoint: .bottom, endPoint: .top)).cornerRadius(8.0).padding().padding(.bottom, 0)
+        }.frame(height: 48)
     }
 }
 
@@ -143,14 +150,13 @@ struct TrackView: View {
         _sound = /*State<Sound>*/.init(initialValue: sound)
         _track = .init(initialValue: Track(path: sound.path))
         soundManager.addTrack(track)
-        print("Creating Fader for \(sound.path)")
+//        print("Creating Fader for \(sound.path)")
     }
 
     var body: some View {
         VStack {
-//            Slider(value: $track.volume, in: 0...1)
             FaderView(value: $track.volume)
-            Text(sound.title)
+//            Text(sound.title)
         }
     }
 }

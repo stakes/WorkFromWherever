@@ -22,8 +22,8 @@ struct WorkFromWhereverApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .frame(width: 720, height: 360)
-                .background(Color(NSColor.textBackgroundColor))
+                .frame(width: 540, height: 240)
+                .background(Color("backgroundColor"))
         }
     }
 }
