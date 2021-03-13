@@ -104,7 +104,7 @@ struct MainView: View {
             Text(place.title).font(.largeTitle)
             HStack {
                 ForEach (place.sounds ?? []) { sound in
-                    FaderView(soundManager: soundManager, sound: sound)
+                    TrackView(soundManager: soundManager, sound: sound)
                 }
             }
         }.navigationTitle(place.title)
@@ -115,30 +115,23 @@ func toggleSidebar() {
     NSApp.keyWindow?.firstResponder?.tryToPerform(#selector(NSSplitViewController.toggleSidebar(_:)), with: nil)
 }
 
-struct FaderView: View {
+struct TrackView: View {
     var soundManager:SoundManager
     @State var track:Track
     @State var sound:Sound
-    @State private var volume = 0.1 {
-        didSet {
-            print(volume)
-            print(track.volume)
-            track.volume = Float(volume)
-        }
-    }
     
     init(soundManager:SoundManager, sound:Sound) {
         self.soundManager = soundManager
         _sound = /*State<Sound>*/.init(initialValue: sound)
         _track = .init(initialValue: Track(path: sound.path))
         soundManager.addTrack(track)
-        print("Creating Fader for \(sound.path)")x
+        print("Creating Fader for \(sound.path)")
     }
 
     var body: some View {
         VStack {
 //            Slider(value: $track.volume, in: 0...1)
-            ValueSlider(value: $volume)
+            FaderView(value: $track.volume)
             Text(sound.title)
         }
     }
