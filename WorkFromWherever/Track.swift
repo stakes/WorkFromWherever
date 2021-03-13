@@ -13,9 +13,9 @@ class Track:ObservableObject {
     var filePath:String?
     let player = AVAudioPlayerNode()
     
-    @Published var volume: CGFloat = 0.5 {
+    @Published var volume: CGFloat = 0.0 {
         didSet {
-            print(volume)
+//            print(volume)
             player.volume = Float(volume)
         }
     }
