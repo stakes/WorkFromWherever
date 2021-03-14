@@ -51,10 +51,12 @@ let placeData:[Place] = [
 
 struct ContentView: View {
     var places = placeData
+    @State var selectedPlaceIndex = 0
     var body: some View {
         VStack {
-            SelectorView(places: placeData)
-            FaderStack(place: placeData[0]).padding(0).padding(.top, -8)
+            SelectorView(places: placeData, selectedPlaceIndex: $selectedPlaceIndex)
+//            FaderTest(index: $selectedPlaceIndex)
+            FaderStack(places: placeData, selectedPlaceIndex: $selectedPlaceIndex).padding(0).padding(.top, -8)
         }.background(Color("backgroundColor"))
     }
 }
@@ -65,67 +67,20 @@ struct ContentView_Previews: PreviewProvider {
     }
 }
 
-struct SelectorView: View {
-    @State var places:[Place]
-//    @State var selectedPlace: Place =
-    var body: some View {
-        VStack {
-            HStack {
-                Text(places[0].title).font(.system(.title3, design: .monospaced)).foregroundColor(Color.white).padding(8).padding(.leading, 12).opacity(0.8)
-                Spacer()
-            }.background(LinearGradient(gradient: Gradient(colors: [Color("screenColorStart"), Color("screenColorStop")]), startPoint: .bottom, endPoint: .top))
-            .cornerRadius(8.0)
-            .padding(.top, 32)
-            .padding(.horizontal)
-        }.background(Color("backgroundColor"))
-    }
-}
-
-//struct Sidebar: View {
-//    @State var places:[Place]
-//    @State var selectedPlace: Place?
-//    var body: some View {
-//        List {
-//            Group {
-//                Text("Work from the").foregroundColor(.gray)
-//
-//            }
-//            ForEach (places) { place in
-//                NavigationLink(destination: LinkPresenter { MainView(place: place) }, tag: place, selection: $selectedPlace) {
-//                    Text(place.title)
-//                }.navigationTitle(place.title)
-//            }
-//        }
-//        .listStyle(SidebarListStyle())
-//        .frame(minWidth: 192, idealWidth: 192, maxWidth: 256, maxHeight: .infinity)
-//        .toolbar{
-//            //Toggle Sidebar Button
-//            ToolbarItem(placement: .navigation){
-//                Button(action: toggleSidebar, label: {
-//                    Image(systemName: "sidebar.left")
-//                })
-//            }
-//        }
-//    }
-//}
-
 struct FaderStack: View {
     let soundManager = SoundManager()
-    @State var place:Place
+    @State var places:[Place]
+    @Binding var selectedPlaceIndex:Int
     var body: some View {
         VStack {
             HStack(alignment: .top, spacing: 0) {
                 Image("speaker")
-                ForEach (place.sounds ?? []) { sound in
+                ForEach (places[selectedPlaceIndex].sounds ?? []) { sound in
                     TrackView(soundManager: soundManager, sound: sound)
                 }
             }
-        }.navigationTitle(place.title)
+        }
     }
-}
-
-func toggleSidebar() {
-    NSApp.keyWindow?.firstResponder?.tryToPerform(#selector(NSSplitViewController.toggleSidebar(_:)), with: nil)
 }
 
 struct TrackView: View {
@@ -138,32 +93,13 @@ struct TrackView: View {
         _sound = /*State<Sound>*/.init(initialValue: sound)
         _track = .init(initialValue: Track(path: sound.path))
         soundManager.addTrack(track)
-//        print("Creating Fader for \(sound.path)")
+        print("Creating Fader for \(sound.path)")
     }
 
     var body: some View {
         VStack {
             FaderView(value: $track.volume)
-//            Text(sound.title)
+            Text(sound.title)
         }
-    }
-}
-
-struct LinkPresenter<Content: View>: View {
-    let content: () -> Content
-
-    @State private var invalidated = false
-    init(@ViewBuilder _ content: @escaping () -> Content) {
-        self.content = content
-    }
-    var body: some View {
-        Group {
-            if self.invalidated {
-                EmptyView()
-            } else {
-                content()
-            }
-        }
-        .onDisappear { self.invalidated = true }
     }
 }
