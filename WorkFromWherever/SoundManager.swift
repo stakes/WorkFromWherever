@@ -33,6 +33,10 @@ class SoundManager {
         track.play()
     }
     
+    func removeTrack(_ track:Track) {
+        engine.detach(track.player)
+    }
+    
     func removeAllTracks() {
         tracks.forEach { node in
             engine.detach(node)

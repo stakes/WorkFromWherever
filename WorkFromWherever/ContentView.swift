@@ -50,13 +50,13 @@ let placeData:[Place] = [
 ]
 
 struct ContentView: View {
+    let soundManager:SoundManager = SoundManager()
     var places = placeData
     @State var selectedPlaceIndex = 0
     var body: some View {
         VStack {
             SelectorView(places: placeData, selectedPlaceIndex: $selectedPlaceIndex)
-//            FaderTest(index: $selectedPlaceIndex)
-            FaderStack(places: placeData, selectedPlaceIndex: $selectedPlaceIndex).padding(0).padding(.top, -8)
+            FaderStack(soundManager: soundManager, places: placeData, selectedPlaceIndex: $selectedPlaceIndex).padding(0).padding(.top, -8)
         }.background(Color("backgroundColor"))
     }
 }
@@ -68,7 +68,7 @@ struct ContentView_Previews: PreviewProvider {
 }
 
 struct FaderStack: View {
-    let soundManager = SoundManager()
+    let soundManager:SoundManager
     @State var places:[Place]
     @Binding var selectedPlaceIndex:Int
     var body: some View {
@@ -80,9 +80,6 @@ struct FaderStack: View {
                 }
             }
         }
-//        }.onChange(of: selectedPlaceIndex) { [selectedPlaceIndex] newState in
-//            soundManager.removeAllTracks()
-//        }
     }
 }
 
@@ -103,6 +100,8 @@ struct TrackView: View {
         VStack {
             FaderView(value: $track.volume)
             Text(sound.title)
+        }.onDisappear() {
+            soundManager.removeTrack(self.track)
         }
     }
 }

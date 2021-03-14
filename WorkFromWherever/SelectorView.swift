@@ -15,6 +15,30 @@ struct SelectorView: View {
             HStack {
                 Text(places[selectedPlaceIndex].title).font(.system(.title3, design: .monospaced)).foregroundColor(.white).padding(8).padding(.leading, 12).opacity(0.8)
                 Spacer()
+//                Button(action: {
+//                    self.selectedPlaceIndex -= 1
+//                    print(self.selectedPlaceIndex)
+//
+//                }) {
+//                    Image(systemName: "chevron.left").foregroundColor(.white)
+//                }.buttonStyle(PlainButtonStyle())
+//                Button(action: {
+//                    self.selectedPlaceIndex += 1
+//                    print(self.selectedPlaceIndex)
+//                }) {
+//                    Image(systemName: "chevron.right").foregroundColor(.white)
+//                }.buttonStyle(PlainButtonStyle())
+                NavigationLink(
+                    destination: /*@START_MENU_TOKEN@*/Text("Destination")/*@END_MENU_TOKEN@*/,
+                    label: {
+                        Button(action: {
+                            self.selectedPlaceIndex -= 1
+                            print(self.selectedPlaceIndex)
+
+                        }) {
+                            Image(systemName: "chevron.left").foregroundColor(.white)
+                        }.buttonStyle(PlainButtonStyle())
+                    })
                 Button(action: {
                     self.selectedPlaceIndex -= 1
                     print(self.selectedPlaceIndex)
