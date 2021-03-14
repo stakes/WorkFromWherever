@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import AudioKit
+//import AudioKit
 import AVFoundation
 
 class Track:ObservableObject {
@@ -15,7 +15,7 @@ class Track:ObservableObject {
     
     @Published var volume: CGFloat = 0.0 {
         didSet {
-//            print(volume)
+            print(volume)
             player.volume = Float(volume)
         }
     }
@@ -34,7 +34,7 @@ class Track:ObservableObject {
 
 struct AudioSource {
     var audioFile: AVAudioFile?
-    var sourceBuffer: AVAudioPCMBuffer?
+//    var sourceBuffer: AVAudioPCMBuffer?
     var fileUrl: URL?
     
     init(_ file: String) {
@@ -43,12 +43,12 @@ struct AudioSource {
         do {
             audioFile = try AVAudioFile(forReading: url)
         } catch {
-            Log("Could not load: \(file)")
+            print("Could not load: \(file)")
         }
-        do {
-            sourceBuffer = try AVAudioPCMBuffer(file: audioFile!)
-        } catch {
-            Log("Could not buffer: \(file)")
-        }
+//        do {
+//            sourceBuffer = try AVAudioPCMBuffer(file: audioFile!)
+//        } catch {
+//            print("Could not buffer: \(file)")
+//        }
     }
 }

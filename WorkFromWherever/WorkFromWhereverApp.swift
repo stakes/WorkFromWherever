@@ -10,8 +10,8 @@ import SwiftUI
 final class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationDidFinishLaunching(_ notification: Notification) {
         if let window = NSApplication.shared.windows.first {
-            window.titlebarAppearsTransparent = true
-            window.backgroundColor = NSColor.white
+            window.titlebarAppearsTransparent = true // as stated
+                window.titleVisibility = .hidden         // no title - all in content
             window.styleMask.remove(.resizable)
         }
     }
@@ -27,6 +27,6 @@ struct WorkFromWhereverApp: App {
                 .background(Color.blue)
                 .edgesIgnoringSafeArea(.all)
                 .padding(.bottom, -28)
-        }.windowStyle(HiddenTitleBarWindowStyle()).windowToolbarStyle(ExpandedWindowToolbarStyle())
+        }.windowStyle(DefaultWindowStyle()).windowToolbarStyle(ExpandedWindowToolbarStyle())
     }
 }

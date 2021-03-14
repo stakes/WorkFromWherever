@@ -80,6 +80,9 @@ struct FaderStack: View {
                 }
             }
         }
+//        }.onChange(of: selectedPlaceIndex) { [selectedPlaceIndex] newState in
+//            soundManager.removeAllTracks()
+//        }
     }
 }
 
