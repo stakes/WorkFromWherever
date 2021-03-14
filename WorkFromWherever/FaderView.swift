@@ -24,12 +24,12 @@ struct FaderView: View {
                     VStack {
                         ZStack {
                             Circle()
-                                .foregroundColor(Color("knobColor"))
-                                .overlay(Circle().stroke(Color("lightenedBgColor"), lineWidth: 1))
-                            Circle()
                                 .shadow(color: .black, radius: 10, x: 5, y: 5)
                                 .shadow(color: .white, radius: 10, x: -5, y: -5)
                                 .blendMode(.overlay)
+                            Circle()
+                                .fill(Color("knobColor"))
+                                .overlay(Circle().stroke(Color("lightenedBgColor"), lineWidth: 3))
                         }
                         .frame(width: 38, height: 38)
                         .offset(y: yOffset)

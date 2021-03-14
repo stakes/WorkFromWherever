@@ -3,6 +3,16 @@
     {
       "filename" : "speaker.pdf",
       "idiom" : "universal"
+    },
+    {
+      "appearances" : [
+        {
+          "appearance" : "luminosity",
+          "value" : "dark"
+        }
+      ],
+      "filename" : "speaker-dark.pdf",
+      "idiom" : "universal"
     }
   ],
   "info" : {

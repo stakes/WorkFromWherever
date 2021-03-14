@@ -49,28 +49,13 @@ let placeData:[Place] = [
     Place(title: "Airplane", sounds: planeSounds)
 ]
 
-//struct ContentView: View {
-//    var places = placeData
-//    var body: some View {
-////        VerticalSliderExamplesView()
-////            .environmentObject(model)
-//        NavigationView {
-//            Sidebar(places: places, selectedPlace: places[0])
-////                .background(Color(NSColor.textBackgroundColor))
-//            ZStack {
-//                EmptyView()
-//            }
-//        }
-//    }
-//}
-
 struct ContentView: View {
     var places = placeData
     var body: some View {
         VStack {
             SelectorView(places: placeData)
-            FaderStack(place: placeData[0])
-        }.frame(width: 540).background(Color("backgroundColor"))
+            FaderStack(place: placeData[0]).padding(0).padding(.top, -8)
+        }.background(Color("backgroundColor"))
     }
 }
 
@@ -88,8 +73,11 @@ struct SelectorView: View {
             HStack {
                 Text(places[0].title).font(.system(.title3, design: .monospaced)).foregroundColor(Color.white).padding(8).padding(.leading, 12).opacity(0.8)
                 Spacer()
-            }.background(LinearGradient(gradient: Gradient(colors: [Color("screenColorStart"), Color("screenColorStop")]), startPoint: .bottom, endPoint: .top)).cornerRadius(8.0).padding().padding(.bottom, 0)
-        }.frame(height: 48)
+            }.background(LinearGradient(gradient: Gradient(colors: [Color("screenColorStart"), Color("screenColorStop")]), startPoint: .bottom, endPoint: .top))
+            .cornerRadius(8.0)
+            .padding(.top, 32)
+            .padding(.horizontal)
+        }.background(Color("backgroundColor"))
     }
 }
 
@@ -160,7 +148,6 @@ struct TrackView: View {
         }
     }
 }
-
 
 struct LinkPresenter<Content: View>: View {
     let content: () -> Content
