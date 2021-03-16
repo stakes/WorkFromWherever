@@ -8,23 +8,23 @@
 import SwiftUI
 
 struct SelectorView: View {
-    @State var places:[Place]
-    @Binding var selectedPlaceIndex:Int
+    @State var channels:[Channel]
+    @Binding var selectedChannelIndex:Int
     var body: some View {
         VStack {
             HStack {
-                Text(places[selectedPlaceIndex].title).font(.system(.title3, design: .monospaced)).foregroundColor(.white).padding(8).padding(.leading, 12).opacity(0.8)
+                Text(channels[selectedChannelIndex].title).font(.system(.title3, design: .monospaced)).foregroundColor(.white).padding(8).padding(.leading, 12).opacity(0.8)
                 Spacer()
                 Button(action: {
-                    self.selectedPlaceIndex -= 1
-                    print(self.selectedPlaceIndex)
+                    self.selectedChannelIndex -= 1
+                    print(self.selectedChannelIndex)
 
                 }) {
                     Image(systemName: "chevron.left").foregroundColor(.white)
                 }.buttonStyle(PlainButtonStyle())
                 Button(action: {
-                    self.selectedPlaceIndex += 1
-                    print(self.selectedPlaceIndex)
+                    self.selectedChannelIndex += 1
+                    print(self.selectedChannelIndex)
                 }) {
                     Image(systemName: "chevron.right").foregroundColor(.white)
                 }.buttonStyle(PlainButtonStyle())
@@ -39,6 +39,6 @@ struct SelectorView: View {
 
 struct SelectorView_Previews: PreviewProvider {
     static var previews: some View {
-        SelectorView(places: placeData, selectedPlaceIndex: .constant(0))
+        SelectorView(channels: channelData, selectedChannelIndex: .constant(0))
     }
 }

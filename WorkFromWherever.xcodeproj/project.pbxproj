@@ -10,19 +10,28 @@
 		C836D78D25EC535E0015160F /* VolumeKnob.swift in Sources */ = {isa = PBXBuildFile; fileRef = C836D78C25EC535E0015160F /* VolumeKnob.swift */; };
 		C836D79B25EC8E4F0015160F /* FaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C836D79A25EC8E4F0015160F /* FaderView.swift */; };
 		C836D7D025FDC09C0015160F /* SelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C836D7CF25FDC09C0015160F /* SelectorView.swift */; };
+		C836D7E526005BDD0015160F /* TrackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C836D7E426005BDD0015160F /* TrackView.swift */; };
+		C836D7E926005C580015160F /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = C836D7E826005C580015160F /* Track.swift */; };
+		C836D7EC26005C5E0015160F /* ChannelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C836D7EB26005C5E0015160F /* ChannelData.swift */; };
+		C836D7EF26005C660015160F /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C836D7EE26005C660015160F /* SoundManager.swift */; };
+		C836D7F226005CAF0015160F /* FaderStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C836D7F126005CAF0015160F /* FaderStackView.swift */; };
+		C836D7F7260060DC0015160F /* Audio in Resources */ = {isa = PBXBuildFile; fileRef = C836D7F6260060DC0015160F /* Audio */; };
 		C89917DD25E326B2002D1D66 /* WorkFromWhereverApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C89917DC25E326B2002D1D66 /* WorkFromWhereverApp.swift */; };
 		C89917DF25E326B2002D1D66 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C89917DE25E326B2002D1D66 /* ContentView.swift */; };
 		C89917E125E326B3002D1D66 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C89917E025E326B3002D1D66 /* Assets.xcassets */; };
 		C89917E425E326B3002D1D66 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C89917E325E326B3002D1D66 /* Preview Assets.xcassets */; };
-		C89917FA25E342B7002D1D66 /* Sounds in Resources */ = {isa = PBXBuildFile; fileRef = C89917F925E342B7002D1D66 /* Sounds */; };
-		C89917FF25E34517002D1D66 /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C89917FE25E34517002D1D66 /* SoundManager.swift */; };
-		C899180425E4AF70002D1D66 /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = C899180325E4AF70002D1D66 /* Track.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		C836D78C25EC535E0015160F /* VolumeKnob.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolumeKnob.swift; sourceTree = "<group>"; };
 		C836D79A25EC8E4F0015160F /* FaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaderView.swift; sourceTree = "<group>"; };
 		C836D7CF25FDC09C0015160F /* SelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectorView.swift; sourceTree = "<group>"; };
+		C836D7E426005BDD0015160F /* TrackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackView.swift; sourceTree = "<group>"; };
+		C836D7E826005C580015160F /* Track.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
+		C836D7EB26005C5E0015160F /* ChannelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelData.swift; sourceTree = "<group>"; };
+		C836D7EE26005C660015160F /* SoundManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
+		C836D7F126005CAF0015160F /* FaderStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaderStackView.swift; sourceTree = "<group>"; };
+		C836D7F6260060DC0015160F /* Audio */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Audio; sourceTree = "<group>"; };
 		C89917D925E326B2002D1D66 /* WorkFromWherever.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WorkFromWherever.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C89917DC25E326B2002D1D66 /* WorkFromWhereverApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkFromWhereverApp.swift; sourceTree = "<group>"; };
 		C89917DE25E326B2002D1D66 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -30,9 +39,6 @@
 		C89917E325E326B3002D1D66 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		C89917E525E326B3002D1D66 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C89917E625E326B3002D1D66 /* WorkFromWherever.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WorkFromWherever.entitlements; sourceTree = "<group>"; };
-		C89917F925E342B7002D1D66 /* Sounds */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Sounds; sourceTree = "<group>"; };
-		C89917FE25E34517002D1D66 /* SoundManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
-		C899180325E4AF70002D1D66 /* Track.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,18 +71,21 @@
 		C89917DB25E326B2002D1D66 /* WorkFromWherever */ = {
 			isa = PBXGroup;
 			children = (
-				C89917F925E342B7002D1D66 /* Sounds */,
+				C836D7F6260060DC0015160F /* Audio */,
+				C836D7EB26005C5E0015160F /* ChannelData.swift */,
+				C836D7E826005C580015160F /* Track.swift */,
+				C836D7EE26005C660015160F /* SoundManager.swift */,
+				C89917E025E326B3002D1D66 /* Assets.xcassets */,
 				C89917DC25E326B2002D1D66 /* WorkFromWhereverApp.swift */,
 				C89917DE25E326B2002D1D66 /* ContentView.swift */,
 				C836D7CF25FDC09C0015160F /* SelectorView.swift */,
-				C89917E025E326B3002D1D66 /* Assets.xcassets */,
+				C836D7F126005CAF0015160F /* FaderStackView.swift */,
+				C836D7E426005BDD0015160F /* TrackView.swift */,
+				C836D79A25EC8E4F0015160F /* FaderView.swift */,
 				C89917E525E326B3002D1D66 /* Info.plist */,
 				C89917E625E326B3002D1D66 /* WorkFromWherever.entitlements */,
-				C89917E225E326B3002D1D66 /* Preview Content */,
-				C89917FE25E34517002D1D66 /* SoundManager.swift */,
-				C899180325E4AF70002D1D66 /* Track.swift */,
 				C836D78C25EC535E0015160F /* VolumeKnob.swift */,
-				C836D79A25EC8E4F0015160F /* FaderView.swift */,
+				C89917E225E326B3002D1D66 /* Preview Content */,
 			);
 			path = WorkFromWherever;
 			sourceTree = "<group>";
@@ -150,9 +159,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C89917FA25E342B7002D1D66 /* Sounds in Resources */,
 				C89917E425E326B3002D1D66 /* Preview Assets.xcassets in Resources */,
 				C89917E125E326B3002D1D66 /* Assets.xcassets in Resources */,
+				C836D7F7260060DC0015160F /* Audio in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -163,13 +172,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C836D7F226005CAF0015160F /* FaderStackView.swift in Sources */,
 				C89917DF25E326B2002D1D66 /* ContentView.swift in Sources */,
 				C836D7D025FDC09C0015160F /* SelectorView.swift in Sources */,
-				C89917FF25E34517002D1D66 /* SoundManager.swift in Sources */,
 				C89917DD25E326B2002D1D66 /* WorkFromWhereverApp.swift in Sources */,
+				C836D7E526005BDD0015160F /* TrackView.swift in Sources */,
 				C836D79B25EC8E4F0015160F /* FaderView.swift in Sources */,
-				C899180425E4AF70002D1D66 /* Track.swift in Sources */,
 				C836D78D25EC535E0015160F /* VolumeKnob.swift in Sources */,
+				C836D7E926005C580015160F /* Track.swift in Sources */,
+				C836D7EC26005C5E0015160F /* ChannelData.swift in Sources */,
+				C836D7EF26005C660015160F /* SoundManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
