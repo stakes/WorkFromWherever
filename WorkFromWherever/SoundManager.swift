@@ -6,12 +6,12 @@
 //
 
 import Foundation
-import AudioKit
 import AVFoundation
 
 class SoundManager {
     let engine = AVAudioEngine()
     let mixer = AVAudioMixerNode()
+    var tracks:[AVAudioNode] = []
     
     init() {
         engine.attach(mixer)
@@ -19,7 +19,7 @@ class SoundManager {
         do {
             try engine.start()
         } catch {
-            Log("Engine didn't start: \(error)")
+            print("Engine didn't start: \(error)")
         }
 //        engine.mainMixerNode.installTap(onBus: 0, bufferSize: 1024, format: nil) { (buffer, time) in
 //            self.processAudioData(buffer: buffer)
@@ -29,7 +29,19 @@ class SoundManager {
     func addTrack(_ track:Track) {
         engine.attach(track.player)
         engine.connect(track.player, to: mixer, format: nil)
+        tracks.append(track.player)
         track.play()
+    }
+    
+    func removeTrack(_ track:Track) {
+        engine.detach(track.player)
+    }
+    
+    func removeAllTracks() {
+        tracks.forEach { node in
+            engine.detach(node)
+        }
+        tracks = []
     }
     
 //    func processAudioData(buffer: AVAudioPCMBuffer){

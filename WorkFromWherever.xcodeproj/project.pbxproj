@@ -3,18 +3,17 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		C836D78D25EC535E0015160F /* VolumeKnob.swift in Sources */ = {isa = PBXBuildFile; fileRef = C836D78C25EC535E0015160F /* VolumeKnob.swift */; };
-		C836D79225EC54FD0015160F /* Sliders in Frameworks */ = {isa = PBXBuildFile; productRef = C836D79125EC54FD0015160F /* Sliders */; };
 		C836D79B25EC8E4F0015160F /* FaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C836D79A25EC8E4F0015160F /* FaderView.swift */; };
+		C836D7D025FDC09C0015160F /* SelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C836D7CF25FDC09C0015160F /* SelectorView.swift */; };
 		C89917DD25E326B2002D1D66 /* WorkFromWhereverApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C89917DC25E326B2002D1D66 /* WorkFromWhereverApp.swift */; };
 		C89917DF25E326B2002D1D66 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C89917DE25E326B2002D1D66 /* ContentView.swift */; };
 		C89917E125E326B3002D1D66 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C89917E025E326B3002D1D66 /* Assets.xcassets */; };
 		C89917E425E326B3002D1D66 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C89917E325E326B3002D1D66 /* Preview Assets.xcassets */; };
-		C89917F025E32CB1002D1D66 /* AudioKit in Frameworks */ = {isa = PBXBuildFile; productRef = C89917EF25E32CB1002D1D66 /* AudioKit */; };
 		C89917FA25E342B7002D1D66 /* Sounds in Resources */ = {isa = PBXBuildFile; fileRef = C89917F925E342B7002D1D66 /* Sounds */; };
 		C89917FF25E34517002D1D66 /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C89917FE25E34517002D1D66 /* SoundManager.swift */; };
 		C899180425E4AF70002D1D66 /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = C899180325E4AF70002D1D66 /* Track.swift */; };
@@ -23,6 +22,7 @@
 /* Begin PBXFileReference section */
 		C836D78C25EC535E0015160F /* VolumeKnob.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolumeKnob.swift; sourceTree = "<group>"; };
 		C836D79A25EC8E4F0015160F /* FaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaderView.swift; sourceTree = "<group>"; };
+		C836D7CF25FDC09C0015160F /* SelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectorView.swift; sourceTree = "<group>"; };
 		C89917D925E326B2002D1D66 /* WorkFromWherever.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WorkFromWherever.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C89917DC25E326B2002D1D66 /* WorkFromWhereverApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkFromWhereverApp.swift; sourceTree = "<group>"; };
 		C89917DE25E326B2002D1D66 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -40,8 +40,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C89917F025E32CB1002D1D66 /* AudioKit in Frameworks */,
-				C836D79225EC54FD0015160F /* Sliders in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,6 +68,7 @@
 				C89917F925E342B7002D1D66 /* Sounds */,
 				C89917DC25E326B2002D1D66 /* WorkFromWhereverApp.swift */,
 				C89917DE25E326B2002D1D66 /* ContentView.swift */,
+				C836D7CF25FDC09C0015160F /* SelectorView.swift */,
 				C89917E025E326B3002D1D66 /* Assets.xcassets */,
 				C89917E525E326B3002D1D66 /* Info.plist */,
 				C89917E625E326B3002D1D66 /* WorkFromWherever.entitlements */,
@@ -107,8 +106,6 @@
 			);
 			name = WorkFromWherever;
 			packageProductDependencies = (
-				C89917EF25E32CB1002D1D66 /* AudioKit */,
-				C836D79125EC54FD0015160F /* Sliders */,
 			);
 			productName = WorkFromWherever;
 			productReference = C89917D925E326B2002D1D66 /* WorkFromWherever.app */;
@@ -138,8 +135,6 @@
 			);
 			mainGroup = C89917D025E326B2002D1D66;
 			packageReferences = (
-				C89917EE25E32CB1002D1D66 /* XCRemoteSwiftPackageReference "AudioKit" */,
-				C836D79025EC54FD0015160F /* XCRemoteSwiftPackageReference "swiftui-sliders" */,
 			);
 			productRefGroup = C89917DA25E326B2002D1D66 /* Products */;
 			projectDirPath = "";
@@ -169,6 +164,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C89917DF25E326B2002D1D66 /* ContentView.swift in Sources */,
+				C836D7D025FDC09C0015160F /* SelectorView.swift in Sources */,
 				C89917FF25E34517002D1D66 /* SoundManager.swift in Sources */,
 				C89917DD25E326B2002D1D66 /* WorkFromWhereverApp.swift in Sources */,
 				C836D79B25EC8E4F0015160F /* FaderView.swift in Sources */,
@@ -365,38 +361,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		C836D79025EC54FD0015160F /* XCRemoteSwiftPackageReference "swiftui-sliders" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/spacenation/swiftui-sliders.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.0;
-			};
-		};
-		C89917EE25E32CB1002D1D66 /* XCRemoteSwiftPackageReference "AudioKit" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/AudioKit/AudioKit";
-			requirement = {
-				branch = "v5-main";
-				kind = branch;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		C836D79125EC54FD0015160F /* Sliders */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = C836D79025EC54FD0015160F /* XCRemoteSwiftPackageReference "swiftui-sliders" */;
-			productName = Sliders;
-		};
-		C89917EF25E32CB1002D1D66 /* AudioKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = C89917EE25E32CB1002D1D66 /* XCRemoteSwiftPackageReference "AudioKit" */;
-			productName = AudioKit;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = C89917D125E326B2002D1D66 /* Project object */;
 }

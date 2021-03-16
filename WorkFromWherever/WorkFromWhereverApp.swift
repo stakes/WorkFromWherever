@@ -7,23 +7,26 @@
 
 import SwiftUI
 
-//final class AppDelegate: NSObject, NSApplicationDelegate {
-//    func applicationDidFinishLaunching(_ notification: Notification) {
-//        if let window = NSApplication.shared.windows.first {
-//            window.titlebarAppearsTransparent = true
-//            window.backgroundColor = NSColor.white
-//        }
-//    }
-//}
+final class AppDelegate: NSObject, NSApplicationDelegate {
+    func applicationDidFinishLaunching(_ notification: Notification) {
+        if let window = NSApplication.shared.windows.first {
+            window.titlebarAppearsTransparent = true // as stated
+                window.titleVisibility = .hidden         // no title - all in content
+            window.styleMask.remove(.resizable)
+        }
+    }
+}
 
 @main
 struct WorkFromWhereverApp: App {
-//    @NSApplicationDelegateAdaptor(AppDelegate.self) var delegate
+    @NSApplicationDelegateAdaptor(AppDelegate.self) var delegate
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .frame(width: 720, height: 360)
-                .background(Color(NSColor.textBackgroundColor))
-        }
+                .frame(width: 518)
+                .background(Color.blue)
+                .edgesIgnoringSafeArea(.all)
+                .padding(.bottom, -28)
+        }.windowStyle(DefaultWindowStyle()).windowToolbarStyle(ExpandedWindowToolbarStyle())
     }
 }
