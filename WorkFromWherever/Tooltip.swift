@@ -12,9 +12,9 @@ struct Tooltip: View {
     var body: some View {
         HStack(alignment: .bottom) {
             HStack {
-                Text(self.label).frame(width: 60).foregroundColor(Color.white).font(.system(size: 11, design: .monospaced)).fixedSize(horizontal: false, vertical: true).multilineTextAlignment(.center).padding(8)
+                Text(self.label).foregroundColor(Color.white).font(.system(size: 11, design: .monospaced)).fixedSize(horizontal: true, vertical: false).multilineTextAlignment(.center).padding(8)
             }.background(Color.black).cornerRadius(8)
-        }.frame(width: 60, height: 44, alignment: .bottom)
+        }.frame(height: 44, alignment: .bottom)
     }
 }
 
