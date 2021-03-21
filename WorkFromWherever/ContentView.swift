@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import Sliders
 
 struct Sound: Identifiable, Hashable {
     var id = UUID()

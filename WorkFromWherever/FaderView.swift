@@ -11,9 +11,12 @@ import SwiftUI
 struct FaderView: View {
     @State var lastOffset: CGFloat = 0
     @State var yOffset: CGFloat = 4
+    @State var isTooltip: Bool = false
+    @State var isDragging: Bool = false
     @Binding var value: CGFloat
+    var label: String
     var body: some View {
-        ZStack(alignment: .center) {
+        ZStack(alignment: .bottom) {
             ZStack {
                 RoundedRectangle(cornerRadius: 40).fill(Color("backgroundColor"))
                     .shadow(color: .black, radius: 10, x: 5, y: 5)
@@ -30,16 +33,22 @@ struct FaderView: View {
                             Circle()
                                 .fill(Color("knobColor"))
                                 .overlay(Circle().stroke(Color("lightenedBgColor"), lineWidth: 3))
+                                .onHover { inside in
+                                    if inside {
+                                        isTooltip = true
+                                        NSCursor.pointingHand.push()
+                                    } else {
+                                        if !isDragging {
+                                            isTooltip = false
+                                        }
+                                        NSCursor.pop()
+                                    }
+                                }
+                                Tooltip(label: self.label).frame(width: 38).offset(y: -46).opacity(isTooltip ? 1 : 0).animation(.easeInOut)
+                            
                         }
                         .frame(width: 38, height: 38)
                         .offset(y: yOffset)
-                        .onHover { inside in
-                            if inside {
-                                NSCursor.pointingHand.push()
-                            } else {
-                                NSCursor.pop()
-                            }
-                        }
                         .gesture(
                             DragGesture(minimumDistance: 0)
                                 .onChanged { value in
@@ -50,13 +59,20 @@ struct FaderView: View {
                                     self.yOffset = sliderPos
                                     let sliderVal = sliderPos.mapInverse(from: 4...((geometry.size.height) - 4 - 38), to: 0...1)
                                     self.value = sliderVal
+                                    if !isTooltip {
+                                        isTooltip = true
+                                    }
+                                    isDragging = true
+                                }
+                                .onEnded { _ in
+                                    isTooltip = false
+                                    isDragging = false
                                 }
                         )
                         Spacer()
                     }.frame(width: 44, height: 130)
                 }
             }.frame(width: 44, height: 130)
-            
         }.frame(width: 86, height: 172).background(Color("backgroundColor"))
     }
 }
@@ -75,7 +91,7 @@ extension CGFloat {
 
 struct FaderView_Previews: PreviewProvider {
     static var previews: some View {
-        FaderView(value: .constant(0))
+        FaderView(value: .constant(0), label: "Sound Name")
     }
 }
 

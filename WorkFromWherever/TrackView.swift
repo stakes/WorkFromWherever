@@ -22,8 +22,15 @@ struct TrackView: View {
 
     var body: some View {
         VStack {
-            FaderView(value: $track.volume)
-//            Text(sound.title)
+            FaderView(value: $track.volume, label: self.sound.title).onHover { hover in
+                print("Mouse hover: \(hover)")
+                if (hover) {
+                    print(self.sound.title)
+                }
+            }
+//            HStack {
+//                Text(sound.title).font(.system(size: 11, design: .monospaced)).fixedSize(horizontal: false, vertical: true).multilineTextAlignment(.center).padding(.horizontal, 12)
+//            }.frame(height: 42, alignment: .top)
         }.onDisappear() {
             soundManager.removeTrack(self.track)
         }

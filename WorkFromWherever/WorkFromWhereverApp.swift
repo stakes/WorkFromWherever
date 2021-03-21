@@ -26,7 +26,7 @@ struct WorkFromWhereverApp: App {
                 .frame(width: 518)
                 .background(Color.blue)
                 .edgesIgnoringSafeArea(.all)
-                .padding(.bottom, -28)
+                .padding(.top, -32)
         }.windowStyle(DefaultWindowStyle()).windowToolbarStyle(ExpandedWindowToolbarStyle())
     }
 }
