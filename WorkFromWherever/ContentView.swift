@@ -11,6 +11,17 @@ struct Content: Codable {
     var channels: [Channel]?
 }
 
+class ContentViewModel: ObservableObject {
+    @Published var content: Content
+    init(_ content: Content) {
+        self.content = content
+    }
+    func updateVolume(sound: Sound, value: CGFloat) {
+        print(sound.title)
+        print(value)
+    }
+}
+
 class ContentLoader {
     static private var plistURL: URL {
         let documents = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
@@ -60,11 +71,12 @@ let appData = ContentLoader.load()
 struct ContentView: View {
     let soundManager:SoundManager = SoundManager()
     var channels = appData
+    var content = ContentViewModel(appData)
     @State var selectedChannelIndex = 0
     var body: some View {
         VStack {
             SelectorView(channels: channelData, selectedChannelIndex: $selectedChannelIndex)
-            FaderStackView(soundManager: soundManager, channels: channelData, selectedChannelIndex: $selectedChannelIndex).padding(0).padding(.top, -8)
+            FaderStackView(soundManager: soundManager, content: content, channels: channelData, selectedChannelIndex: $selectedChannelIndex).padding(0).padding(.top, -8)
         }.background(Color("backgroundColor"))
     }
 }

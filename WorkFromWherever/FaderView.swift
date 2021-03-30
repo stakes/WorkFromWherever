@@ -13,6 +13,8 @@ struct FaderView: View {
     @State var yOffset: CGFloat = 4
     @State var isTooltip: Bool = false
     @State var isDragging: Bool = false
+    @ObservedObject var content:ContentViewModel
+    @Binding var sound: Sound
     @Binding var value: CGFloat
     var label: String
     var body: some View {
@@ -67,6 +69,7 @@ struct FaderView: View {
                                 .onEnded { _ in
                                     isTooltip = false
                                     isDragging = false
+                                    content.updateVolume(sound: sound, value: value)
                                 }
                         ).onAppear() {
                             let v = value.mapInverse(from: 0...1, to: 4...((geometry.size.height) - 4 - 38))
@@ -92,11 +95,11 @@ extension CGFloat {
     }
 }
 
-struct FaderView_Previews: PreviewProvider {
-    static var previews: some View {
-        FaderView(value: .constant(0), label: "Sound Name")
-    }
-}
+//struct FaderView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        FaderView(value: .constant(0), label: "Sound Name")
+//    }
+//}
 
 extension View {
     func innerShadow<S: Shape>(using shape: S, angle: Angle = .degrees(0), color: Color = .black, width: CGFloat = 6, blur: CGFloat = 6) -> some View {
