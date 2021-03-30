@@ -15,7 +15,7 @@ struct TrackView: View {
     init(soundManager:SoundManager, sound:Sound) {
         self.soundManager = soundManager
         _sound = /*State<Sound>*/.init(initialValue: sound)
-        _track = .init(initialValue: Track(path: sound.path))
+        _track = .init(initialValue: Track(sound: sound))
         soundManager.addTrack(track)
         print("Creating Fader for \(sound.path)")
     }

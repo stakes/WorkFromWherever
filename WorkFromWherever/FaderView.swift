@@ -68,7 +68,10 @@ struct FaderView: View {
                                     isTooltip = false
                                     isDragging = false
                                 }
-                        )
+                        ).onAppear() {
+                            let v = value.mapInverse(from: 0...1, to: 4...((geometry.size.height) - 4 - 38))
+                            self.yOffset = v
+                        }
                         Spacer()
                     }.frame(width: 44, height: 130)
                 }

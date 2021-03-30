@@ -8,23 +8,25 @@
 import Foundation
 import AVFoundation
 
-class Track:ObservableObject {
-    var filePath:String?
+class Track:ObservableObject, Identifiable {
+//    var filePath:String?
+    @Published var sound: Sound
     let player = AVAudioPlayerNode()
     
-    @Published var volume: CGFloat = 1.0 {
+    @Published var volume: CGFloat {
         didSet {
             print(volume)
             player.volume = Float(volume)
         }
     }
     
-    init(path:String) {
-        filePath = path
+    init(sound:Sound) {
+        self.sound = sound
+        self.volume = sound.volume
     }
     
     func play() {
-        let snd = AudioSource(filePath!)
+        let snd = AudioSource(sound.path)
         if let file = snd.audioFile {
             player.scheduleFile(file, at: nil, completionHandler: nil)
             player.volume = Float(volume)
