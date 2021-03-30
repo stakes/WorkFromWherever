@@ -17,6 +17,7 @@
 		C836D7F226005CAF0015160F /* FaderStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C836D7F126005CAF0015160F /* FaderStackView.swift */; };
 		C836D7F7260060DC0015160F /* Audio in Resources */ = {isa = PBXBuildFile; fileRef = C836D7F6260060DC0015160F /* Audio */; };
 		C836D7FB2606D4EC0015160F /* Tooltip.swift in Sources */ = {isa = PBXBuildFile; fileRef = C836D7FA2606D4EC0015160F /* Tooltip.swift */; };
+		C882DB6B26129F0200D9F35E /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = C882DB6A26129F0200D9F35E /* Models.swift */; };
 		C89917DD25E326B2002D1D66 /* WorkFromWhereverApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C89917DC25E326B2002D1D66 /* WorkFromWhereverApp.swift */; };
 		C89917DF25E326B2002D1D66 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C89917DE25E326B2002D1D66 /* ContentView.swift */; };
 		C89917E125E326B3002D1D66 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C89917E025E326B3002D1D66 /* Assets.xcassets */; };
@@ -34,6 +35,7 @@
 		C836D7F126005CAF0015160F /* FaderStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaderStackView.swift; sourceTree = "<group>"; };
 		C836D7F6260060DC0015160F /* Audio */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Audio; sourceTree = "<group>"; };
 		C836D7FA2606D4EC0015160F /* Tooltip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tooltip.swift; sourceTree = "<group>"; };
+		C882DB6A26129F0200D9F35E /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		C89917D925E326B2002D1D66 /* WorkFromWherever.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WorkFromWherever.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C89917DC25E326B2002D1D66 /* WorkFromWhereverApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkFromWhereverApp.swift; sourceTree = "<group>"; };
 		C89917DE25E326B2002D1D66 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -73,8 +75,9 @@
 		C89917DB25E326B2002D1D66 /* WorkFromWherever */ = {
 			isa = PBXGroup;
 			children = (
-				C836D7F6260060DC0015160F /* Audio */,
 				C836D7EB26005C5E0015160F /* ChannelData.swift */,
+				C882DB6A26129F0200D9F35E /* Models.swift */,
+				C836D7F6260060DC0015160F /* Audio */,
 				C836D7E826005C580015160F /* Track.swift */,
 				C836D7EE26005C660015160F /* SoundManager.swift */,
 				C89917E025E326B3002D1D66 /* Assets.xcassets */,
@@ -178,6 +181,7 @@
 				C836D7F226005CAF0015160F /* FaderStackView.swift in Sources */,
 				C89917DF25E326B2002D1D66 /* ContentView.swift in Sources */,
 				C836D7D025FDC09C0015160F /* SelectorView.swift in Sources */,
+				C882DB6B26129F0200D9F35E /* Models.swift in Sources */,
 				C89917DD25E326B2002D1D66 /* WorkFromWhereverApp.swift in Sources */,
 				C836D7E526005BDD0015160F /* TrackView.swift in Sources */,
 				C836D79B25EC8E4F0015160F /* FaderView.swift in Sources */,

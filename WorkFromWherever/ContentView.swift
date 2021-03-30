@@ -7,20 +7,7 @@
 
 import SwiftUI
 
-struct Sound: Identifiable, Hashable {
-    var id = UUID()
-    var title: String
-    var path: String
-}
-
-struct Channel: Identifiable, Hashable {
-    var id = UUID()
-    var title: String
-    var sounds: [Sound]?
-}
-
 let appData = channelData
-
 
 struct ContentView: View {
     let soundManager:SoundManager = SoundManager()
