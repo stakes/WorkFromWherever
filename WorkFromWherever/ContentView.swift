@@ -7,20 +7,55 @@
 
 import SwiftUI
 
-struct Sound: Identifiable, Hashable {
-    var id = UUID()
-    var title: String
-    var path: String
+struct Content: Codable {
+    var channels: [Channel]?
 }
 
-struct Channel: Identifiable, Hashable {
+class ContentLoader {
+    static private var plistURL: URL {
+        let documents = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+        return documents.appendingPathComponent("content.plist")
+    }
+
+    static func load() -> Content {
+        let decoder = PropertyListDecoder()
+
+        guard let data = try? Data.init(contentsOf: plistURL),
+              let preferences = try? decoder.decode(Content.self, from: data)
+        else { return Content(channels: channelData) }
+
+        return preferences
+    }
+    
+    static func write(content: Content) {
+        let encoder = PropertyListEncoder()
+
+        if let data = try? encoder.encode(content) {
+            if FileManager.default.fileExists(atPath: plistURL.path) {
+                // Update an existing plist
+                try? data.write(to: plistURL)
+            } else {
+                // Create a new plist
+                FileManager.default.createFile(atPath: plistURL.path, contents: data, attributes: nil)
+            }
+        }
+    }
+}
+
+struct Channel: Codable, Identifiable {
     var id = UUID()
     var title: String
     var sounds: [Sound]?
 }
 
-let appData = channelData
+struct Sound: Codable, Identifiable {
+    var id = UUID()
+    var title: String
+    var path: String
+    var volume: CGFloat
+}
 
+let appData = ContentLoader.load()
 
 struct ContentView: View {
     let soundManager:SoundManager = SoundManager()
