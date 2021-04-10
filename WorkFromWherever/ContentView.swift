@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct Content: Codable {
+struct ChannelList: Codable {
     var channels: [Channel]
 }
 
@@ -26,7 +26,7 @@ struct Sound: Codable, Identifiable {
 
 
 
-//class ContentViewModel: ObservableObject {
+//class ChannelListViewModel: ObservableObject {
 //    @Published var content: Content
 //    init(_ content: Content) {
 //        self.content = content
@@ -40,14 +40,23 @@ struct Sound: Codable, Identifiable {
 //    }
 //}
 
-class ContentViewModel: ObservableObject {
-    @Published var content: Content
-    init(_ content: Content) {
-        self.content = content
+class ChannelListViewModel: ObservableObject {
+    @Published var channelList: ChannelList
+    init() {
+        self.channelList = ContentLoader.load()
+    }
+    func update() {
+        print(channelList)
     }
 }
 
+class ChannelViewModel: ObservableObject {
+    
+}
 
+class SoundViewModel: ObservableObject {
+    
+}
 
 class ContentLoader {
     static private var plistURL: URL {
@@ -55,22 +64,22 @@ class ContentLoader {
         return documents.appendingPathComponent("content.plist")
     }
 
-    static func load() -> Content {
+    static func load() -> ChannelList {
         let decoder = PropertyListDecoder()
 
         guard let data = try? Data.init(contentsOf: plistURL),
-            let preferences = try? decoder.decode(Content.self, from: data)
+            let preferences = try? decoder.decode(ChannelList.self, from: data)
         else {
-            let content = Content(channels: channelData)
-            ContentLoader.write(content: content)
-            return content
+            let channelList = ChannelList(channels: channelData)
+            ContentLoader.write(channelList: channelList)
+            return channelList
         }
         return preferences
     }
     
-    static func write(content: Content) {
+    static func write(channelList: ChannelList) {
         let encoder = PropertyListEncoder()
-        if let data = try? encoder.encode(content) {
+        if let data = try? encoder.encode(channelList) {
             print(data)
             if FileManager.default.fileExists(atPath: plistURL.path) {
                 // Update that existing plist
@@ -83,16 +92,14 @@ class ContentLoader {
     }
 }
 
-let appData = ContentLoader.load()
-
 struct ContentView: View {
     let soundManager:SoundManager = SoundManager()
-    var cvm = ContentViewModel(appData)
+    var channelListViewModel = ChannelListViewModel()
     @State var selectedChannelIndex = 0
     var body: some View {
         VStack {
-            SelectorView(channels: cvm.content.channels, selectedChannelIndex: $selectedChannelIndex)
-            FaderStackView(soundManager: soundManager, cvm: cvm, channels: cvm.content.channels, selectedChannelIndex: $selectedChannelIndex).padding(0).padding(.top, -8)
+            SelectorView(channelListViewModel: channelListViewModel, selectedChannelIndex: $selectedChannelIndex)
+            FaderStackView(soundManager: soundManager, channelListViewModel: channelListViewModel, selectedChannelIndex: $selectedChannelIndex).padding(0).padding(.top, -8)
         }.background(Color("backgroundColor"))
     }
 }

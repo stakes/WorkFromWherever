@@ -8,12 +8,12 @@
 import SwiftUI
 
 struct SelectorView: View {
-    @State var channels:[Channel]
+    @State var channelListViewModel:ChannelListViewModel
     @Binding var selectedChannelIndex:Int
     var body: some View {
         VStack {
             HStack {
-                Text(channels[selectedChannelIndex].title).font(.system(.title3, design: .monospaced)).foregroundColor(.white).padding(8).padding(.leading, 12).opacity(0.8)
+                Text(channelListViewModel.channelList.channels[selectedChannelIndex].title).font(.system(.title3, design: .monospaced)).foregroundColor(.white).padding(8).padding(.leading, 12).opacity(0.8)
                 Spacer()
                 Button(action: {
                     self.selectedChannelIndex -= 1
@@ -37,8 +37,8 @@ struct SelectorView: View {
     }
 }
 
-struct SelectorView_Previews: PreviewProvider {
-    static var previews: some View {
-        SelectorView(channels: channelData, selectedChannelIndex: .constant(0))
-    }
-}
+//struct SelectorView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        SelectorView(channels: channelData, selectedChannelIndex: .constant(0))
+//    }
+//}
