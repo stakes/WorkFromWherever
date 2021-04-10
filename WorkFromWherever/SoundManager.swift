@@ -29,20 +29,21 @@ class SoundManager {
     func addTrack(_ track:Track) {
         engine.attach(track.player)
         engine.connect(track.player, to: mixer, format: nil)
-        tracks.append(track.player)
+//        tracks.append(track.player)
         track.play()
     }
     
     func removeTrack(_ track:Track) {
+        print(track)
         engine.detach(track.player)
     }
     
-    func removeAllTracks() {
-        tracks.forEach { node in
-            engine.detach(node)
-        }
-        tracks = []
-    }
+//    func removeAllTracks() {
+//        tracks.forEach { node in
+//            engine.detach(node)
+//        }
+//        tracks = []
+//    }
     
 //    func processAudioData(buffer: AVAudioPCMBuffer){
 //        guard let channelData = buffer.floatChannelData?[0] else {return}

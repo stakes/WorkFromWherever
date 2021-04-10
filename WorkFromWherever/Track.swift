@@ -15,7 +15,6 @@ class Track:ObservableObject, Identifiable {
     
     @Published var volume: CGFloat {
         didSet {
-            print(volume)
             player.volume = Float(volume)
         }
     }

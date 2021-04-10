@@ -9,13 +9,15 @@ import SwiftUI
 
 struct TrackView: View {
     var soundManager:SoundManager
-    @ObservedObject var content:ContentViewModel
+    @ObservedObject var cvm:ContentViewModel
     @State var track:Track
     @State var sound:Sound
+    let channel:Channel
     
-    init(soundManager:SoundManager, content:ContentViewModel, sound:Sound) {
+    init(soundManager:SoundManager, cvm:ContentViewModel, channel:Channel, sound:Sound) {
         self.soundManager = soundManager
-        self.content = content
+        self.cvm = cvm
+        self.channel = channel
         _sound = /*State<Sound>*/.init(initialValue: sound)
         _track = .init(initialValue: Track(sound: sound))
         soundManager.addTrack(track)
@@ -24,7 +26,7 @@ struct TrackView: View {
 
     var body: some View {
         VStack {
-            FaderView(content: content, sound: $sound, value: $track.volume, label: self.sound.title)
+            FaderView(cvm: cvm, channel: channel, sound: $sound, value: $track.volume, label: self.sound.title)
 //            HStack {
 //                Text(sound.title).font(.system(size: 11, design: .monospaced)).fixedSize(horizontal: false, vertical: true).multilineTextAlignment(.center).padding(.horizontal, 12)
 //            }.frame(height: 42, alignment: .top)

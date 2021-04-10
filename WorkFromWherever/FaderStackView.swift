@@ -9,7 +9,7 @@ import SwiftUI
 
 struct FaderStackView: View {
     let soundManager:SoundManager
-    @ObservedObject var content:ContentViewModel
+    @ObservedObject var cvm:ContentViewModel
     @State var channels:[Channel]
     @Binding var selectedChannelIndex:Int
     var body: some View {
@@ -17,7 +17,7 @@ struct FaderStackView: View {
             HStack(alignment: .top, spacing: 0) {
                 Image("speaker")
                 ForEach (channels[selectedChannelIndex].sounds ?? []) { sound in
-                    TrackView(soundManager: soundManager, content: content, sound: sound)
+                    TrackView(soundManager: soundManager, cvm: cvm, channel: channels[selectedChannelIndex], sound: sound)
                 }
             }
         }
