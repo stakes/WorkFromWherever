@@ -14,6 +14,7 @@ struct FaderView: View {
     @State var isTooltip: Bool = false
     @State var isDragging: Bool = false
     @State var channelListViewModel:ChannelListViewModel
+    @Binding var channel: Channel
     @Binding var sound: Sound
     @Binding var value: CGFloat
     var label: String
@@ -70,7 +71,7 @@ struct FaderView: View {
                                     isTooltip = false
                                     isDragging = false
 //                                    cvm.updateVolumeForSound(channel: channel, sound: sound, value: value)
-                                    channelListViewModel.update()
+                                    channelListViewModel.update(channel: channel, sound: sound, volume: value)
                                 }
                         ).onAppear() {
                             let v = value.mapInverse(from: 0...1, to: 4...((geometry.size.height) - 4 - 38))

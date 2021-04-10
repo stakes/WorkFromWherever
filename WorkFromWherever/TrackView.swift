@@ -12,12 +12,12 @@ struct TrackView: View {
     @ObservedObject var channelListViewModel:ChannelListViewModel
     @State var track:Track
     @State var sound:Sound
-    let channel:Channel
+    @State var channel:Channel
     
     init(soundManager:SoundManager, channelListViewModel:ChannelListViewModel, channel:Channel, sound:Sound) {
         self.soundManager = soundManager
         self.channelListViewModel = channelListViewModel
-        self.channel = channel
+        _channel = /*State<Channel>*/.init(initialValue: channel)
         _sound = /*State<Sound>*/.init(initialValue: sound)
         _track = .init(initialValue: Track(sound: sound))
         soundManager.addTrack(track)
@@ -26,7 +26,7 @@ struct TrackView: View {
 
     var body: some View {
         VStack {
-            FaderView(channelListViewModel: channelListViewModel, sound: $sound, value: $track.volume, label: self.sound.title)
+            FaderView(channelListViewModel: channelListViewModel, channel: $channel, sound: $sound, value: $track.volume, label: self.sound.title)
 //            HStack {
 //                Text(sound.title).font(.system(size: 11, design: .monospaced)).fixedSize(horizontal: false, vertical: true).multilineTextAlignment(.center).padding(.horizontal, 12)
 //            }.frame(height: 42, alignment: .top)

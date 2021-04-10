@@ -41,21 +41,37 @@ struct Sound: Codable, Identifiable {
 //}
 
 class ChannelListViewModel: ObservableObject {
-    @Published var channelList: ChannelList
+    @Published var channelList: ChannelList {
+        didSet {
+            print("set channelList")
+            ContentLoader.write(channelList: channelList)
+        }
+    }
     init() {
         self.channelList = ContentLoader.load()
     }
-    func update() {
-        print(channelList)
+    func update(channel: Channel, sound: Sound, volume: CGFloat) {
+        var cl = self.channelList
+        let channelIndex = channelList.channels.firstIndex { $0.title == channel.title }!
+        let soundIndex = (channelList.channels[channelIndex].sounds?.firstIndex { $0.title == sound.title })!
+        self.channelList.channels[channelIndex].sounds?[soundIndex].volume = volume
     }
 }
 
 class ChannelViewModel: ObservableObject {
+    @Published var channel: Channel
     
+    init(channel: Channel) {
+        self.channel = channel
+    }
 }
 
 class SoundViewModel: ObservableObject {
+    @Published var sound: Sound
     
+    init(sound: Sound) {
+        self.sound = sound
+    }
 }
 
 class ContentLoader {
