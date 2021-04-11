@@ -13,6 +13,9 @@ struct FaderView: View {
     @State var yOffset: CGFloat = 4
     @State var isTooltip: Bool = false
     @State var isDragging: Bool = false
+    @State var channelListViewModel:ChannelListViewModel
+    @Binding var channel: Channel
+    @Binding var sound: Sound
     @Binding var value: CGFloat
     var label: String
     var body: some View {
@@ -44,7 +47,7 @@ struct FaderView: View {
                                         NSCursor.pop()
                                     }
                                 }
-                                Tooltip(label: self.label).frame(width: 38).offset(y: -46).opacity(isTooltip ? 1 : 0).animation(.easeInOut)
+                                TooltipView(label: self.label).frame(width: 38).offset(y: -46).opacity(isTooltip ? 1 : 0).animation(.easeInOut)
                             
                         }
                         .frame(width: 38, height: 38)
@@ -67,8 +70,13 @@ struct FaderView: View {
                                 .onEnded { _ in
                                     isTooltip = false
                                     isDragging = false
+//                                    cvm.updateVolumeForSound(channel: channel, sound: sound, value: value)
+                                    channelListViewModel.update(channel: channel, sound: sound, volume: value)
                                 }
-                        )
+                        ).onAppear() {
+                            let v = value.mapInverse(from: 0...1, to: 4...((geometry.size.height) - 4 - 38))
+                            self.yOffset = v
+                        }
                         Spacer()
                     }.frame(width: 44, height: 130)
                 }
@@ -89,11 +97,11 @@ extension CGFloat {
     }
 }
 
-struct FaderView_Previews: PreviewProvider {
-    static var previews: some View {
-        FaderView(value: .constant(0), label: "Sound Name")
-    }
-}
+//struct FaderView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        FaderView(value: .constant(0), label: "Sound Name")
+//    }
+//}
 
 extension View {
     func innerShadow<S: Shape>(using shape: S, angle: Angle = .degrees(0), color: Color = .black, width: CGFloat = 6, blur: CGFloat = 6) -> some View {

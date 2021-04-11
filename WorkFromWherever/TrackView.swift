@@ -9,30 +9,23 @@ import SwiftUI
 
 struct TrackView: View {
     var soundManager:SoundManager
+    @ObservedObject var channelListViewModel:ChannelListViewModel
     @State var track:Track
     @State var sound:Sound
+    @State var channel:Channel
     
-    init(soundManager:SoundManager, sound:Sound) {
+    init(soundManager:SoundManager, channelListViewModel:ChannelListViewModel, channel:Channel, sound:Sound) {
         self.soundManager = soundManager
+        self.channelListViewModel = channelListViewModel
+        _channel = /*State<Channel>*/.init(initialValue: channel)
         _sound = /*State<Sound>*/.init(initialValue: sound)
-        _track = .init(initialValue: Track(path: sound.path))
+        _track = .init(initialValue: Track(sound: sound))
         soundManager.addTrack(track)
-        print("Creating Fader for \(sound.path)")
     }
 
     var body: some View {
         VStack {
-            FaderView(value: $track.volume, label: self.sound.title).onHover { hover in
-                print("Mouse hover: \(hover)")
-                if (hover) {
-                    print(self.sound.title)
-                }
-            }
-//            HStack {
-//                Text(sound.title).font(.system(size: 11, design: .monospaced)).fixedSize(horizontal: false, vertical: true).multilineTextAlignment(.center).padding(.horizontal, 12)
-//            }.frame(height: 42, alignment: .top)
-        }.onDisappear() {
-            soundManager.removeTrack(self.track)
+            FaderView(channelListViewModel: channelListViewModel, channel: $channel, sound: $sound, value: $track.volume, label: self.sound.title)
         }
     }
 }

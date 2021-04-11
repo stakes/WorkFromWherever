@@ -8,23 +8,28 @@
 import SwiftUI
 
 struct SelectorView: View {
-    @State var channels:[Channel]
+    var soundManager: SoundManager
+    @State var channelListViewModel:ChannelListViewModel
     @Binding var selectedChannelIndex:Int
     var body: some View {
         VStack {
             HStack {
-                Text(channels[selectedChannelIndex].title).font(.system(.title3, design: .monospaced)).foregroundColor(.white).padding(8).padding(.leading, 12).opacity(0.8)
+                Text(channelListViewModel.channelList.channels[selectedChannelIndex].title).font(.system(.title3, design: .monospaced)).foregroundColor(.white).padding(8).padding(.leading, 12).opacity(0.8)
                 Spacer()
                 Button(action: {
-                    self.selectedChannelIndex -= 1
-                    print(self.selectedChannelIndex)
+                    if (self.selectedChannelIndex > 0) {
+                        self.soundManager.removeAllTracks()
+                        self.selectedChannelIndex -= 1
+                    }
 
                 }) {
                     Image(systemName: "chevron.left").foregroundColor(.white)
                 }.buttonStyle(PlainButtonStyle())
                 Button(action: {
-                    self.selectedChannelIndex += 1
-                    print(self.selectedChannelIndex)
+                    if (self.selectedChannelIndex < channelListViewModel.channelList.channels.count-1) {
+                        self.soundManager.removeAllTracks()
+                        self.selectedChannelIndex += 1
+                    }
                 }) {
                     Image(systemName: "chevron.right").foregroundColor(.white)
                 }.buttonStyle(PlainButtonStyle())
@@ -37,8 +42,8 @@ struct SelectorView: View {
     }
 }
 
-struct SelectorView_Previews: PreviewProvider {
-    static var previews: some View {
-        SelectorView(channels: channelData, selectedChannelIndex: .constant(0))
-    }
-}
+//struct SelectorView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        SelectorView(channels: channelData, selectedChannelIndex: .constant(0))
+//    }
+//}

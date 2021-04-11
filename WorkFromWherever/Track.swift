@@ -8,29 +8,35 @@
 import Foundation
 import AVFoundation
 
-class Track:ObservableObject {
-    var filePath:String?
+class Track:ObservableObject, Identifiable, Equatable {
+
+//    var filePath:String?
+    @Published var sound: Sound
     let player = AVAudioPlayerNode()
     
-    @Published var volume: CGFloat = 1.0 {
+    @Published var volume: CGFloat {
         didSet {
-            print(volume)
             player.volume = Float(volume)
         }
     }
     
-    init(path:String) {
-        filePath = path
+    init(sound:Sound) {
+        self.sound = sound
+        self.volume = sound.volume
     }
     
     func play() {
-        let snd = AudioSource(filePath!)
+        let snd = AudioSource(sound.path)
         if let file = snd.audioFile {
             player.scheduleFile(file, at: nil, completionHandler: nil)
             player.volume = Float(volume)
             player.play(at: nil)
             player.scheduleBuffer(snd.sourceBuffer!, at: nil, options:AVAudioPlayerNodeBufferOptions.loops)
         }
+    }
+    
+    static func == (lhs: Track, rhs: Track) -> Bool {
+        return lhs.sound.id == rhs.sound.id
     }
 }
 
@@ -58,10 +64,3 @@ struct AudioSource {
         
     }
 }
-//
-//
-//let file = try AVAudioFile(forReading: url)
-//let audioFileBuffer = AVAudioPCMBuffer(PCMFormat: file.fileFormat, frameCapacity: file.length)
-//try? read(into buffer: audioFileBuffer )
-//audioFilePlayer.scheduleBuffer(audioFileBuffer, atTime: nil, options:.Loops, completionHandler: nil)
-//audioFilePlayer.play()

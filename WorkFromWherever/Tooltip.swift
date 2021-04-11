@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct Tooltip: View {
+struct TooltipView: View {
     var label: String
     var body: some View {
         HStack(alignment: .bottom) {
@@ -20,6 +20,6 @@ struct Tooltip: View {
 
 struct Tooltip_Previews: PreviewProvider {
     static var previews: some View {
-        Tooltip(label: "Clinkity Clankity")
+        TooltipView(label: "Clinkity Clankity")
     }
 }
