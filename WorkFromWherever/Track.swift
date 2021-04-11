@@ -8,7 +8,8 @@
 import Foundation
 import AVFoundation
 
-class Track:ObservableObject, Identifiable {
+class Track:ObservableObject, Identifiable, Equatable {
+
 //    var filePath:String?
     @Published var sound: Sound
     let player = AVAudioPlayerNode()
@@ -22,6 +23,7 @@ class Track:ObservableObject, Identifiable {
     init(sound:Sound) {
         self.sound = sound
         self.volume = sound.volume
+//        print("init \(sound.title)")
     }
     
     func play() {
@@ -32,6 +34,10 @@ class Track:ObservableObject, Identifiable {
             player.play(at: nil)
             player.scheduleBuffer(snd.sourceBuffer!, at: nil, options:AVAudioPlayerNodeBufferOptions.loops)
         }
+    }
+    
+    static func == (lhs: Track, rhs: Track) -> Bool {
+        return lhs.sound.id == rhs.sound.id
     }
 }
 

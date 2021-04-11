@@ -43,7 +43,6 @@ struct Sound: Codable, Identifiable {
 class ChannelListViewModel: ObservableObject {
     @Published var channelList: ChannelList {
         didSet {
-            print("set channelList")
             ContentLoader.write(channelList: channelList)
         }
     }
@@ -96,7 +95,7 @@ class ContentLoader {
     static func write(channelList: ChannelList) {
         let encoder = PropertyListEncoder()
         if let data = try? encoder.encode(channelList) {
-            print(data)
+//            print(data)
             if FileManager.default.fileExists(atPath: plistURL.path) {
                 // Update that existing plist
                 try? data.write(to: plistURL)
@@ -114,7 +113,7 @@ struct ContentView: View {
     @State var selectedChannelIndex = 0
     var body: some View {
         VStack {
-            SelectorView(channelListViewModel: channelListViewModel, selectedChannelIndex: $selectedChannelIndex)
+            SelectorView(soundManager: soundManager, channelListViewModel: channelListViewModel, selectedChannelIndex: $selectedChannelIndex)
             FaderStackView(soundManager: soundManager, channelListViewModel: channelListViewModel, selectedChannelIndex: $selectedChannelIndex).padding(0).padding(.top, -8)
         }.background(Color("backgroundColor"))
     }

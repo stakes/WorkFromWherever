@@ -8,10 +8,10 @@
 import Foundation
 import AVFoundation
 
-class SoundManager {
+class SoundManager: ObservableObject {
     let engine = AVAudioEngine()
     let mixer = AVAudioMixerNode()
-    var tracks:[AVAudioNode] = []
+    var tracks:[Track] = []
     
     init() {
         engine.attach(mixer)
@@ -27,23 +27,32 @@ class SoundManager {
     }
     
     func addTrack(_ track:Track) {
-        engine.attach(track.player)
-        engine.connect(track.player, to: mixer, format: nil)
-//        tracks.append(track.player)
-        track.play()
+        let i = tracks.first { $0.sound.id == track.sound.id }
+        if (i == nil) {
+            engine.attach(track.player)
+            engine.connect(track.player, to: mixer, format: nil)
+            tracks.append(track)
+            track.play()
+        }
     }
     
     func removeTrack(_ track:Track) {
-        print(track)
         engine.detach(track.player)
     }
     
-//    func removeAllTracks() {
-//        tracks.forEach { node in
-//            engine.detach(node)
-//        }
-//        tracks = []
-//    }
+    func removeAllTracks() {
+        tracks.forEach { track in
+            engine.detach(track.player)
+        }
+        tracks = []
+    }
+    
+    func isTrackForSoundPlaying(_ sound: Sound) -> Bool {
+        tracks.forEach { track in
+            print(track)
+        }
+        return false
+    }
     
 //    func processAudioData(buffer: AVAudioPCMBuffer){
 //        guard let channelData = buffer.floatChannelData?[0] else {return}
