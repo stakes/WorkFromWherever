@@ -21,17 +21,11 @@ struct TrackView: View {
         _sound = /*State<Sound>*/.init(initialValue: sound)
         _track = .init(initialValue: Track(sound: sound))
         soundManager.addTrack(track)
-//        print("Creating Fader for \(sound.path)")
     }
 
     var body: some View {
         VStack {
             FaderView(channelListViewModel: channelListViewModel, channel: $channel, sound: $sound, value: $track.volume, label: self.sound.title)
-//            HStack {
-//                Text(sound.title).font(.system(size: 11, design: .monospaced)).fixedSize(horizontal: false, vertical: true).multilineTextAlignment(.center).padding(.horizontal, 12)
-//            }.frame(height: 42, alignment: .top)
-        }.onDisappear() {
-            soundManager.removeTrack(self.track)
         }
     }
 }

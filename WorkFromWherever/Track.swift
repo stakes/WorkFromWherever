@@ -23,7 +23,6 @@ class Track:ObservableObject, Identifiable, Equatable {
     init(sound:Sound) {
         self.sound = sound
         self.volume = sound.volume
-//        print("init \(sound.title)")
     }
     
     func play() {
@@ -65,10 +64,3 @@ struct AudioSource {
         
     }
 }
-//
-//
-//let file = try AVAudioFile(forReading: url)
-//let audioFileBuffer = AVAudioPCMBuffer(PCMFormat: file.fileFormat, frameCapacity: file.length)
-//try? read(into buffer: audioFileBuffer )
-//audioFilePlayer.scheduleBuffer(audioFileBuffer, atTime: nil, options:.Loops, completionHandler: nil)
-//audioFilePlayer.play()

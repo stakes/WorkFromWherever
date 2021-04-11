@@ -47,7 +47,7 @@ struct FaderView: View {
                                         NSCursor.pop()
                                     }
                                 }
-                                Tooltip(label: self.label).frame(width: 38).offset(y: -46).opacity(isTooltip ? 1 : 0).animation(.easeInOut)
+                                TooltipView(label: self.label).frame(width: 38).offset(y: -46).opacity(isTooltip ? 1 : 0).animation(.easeInOut)
                             
                         }
                         .frame(width: 38, height: 38)

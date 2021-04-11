@@ -24,22 +24,6 @@ struct Sound: Codable, Identifiable {
     var volume: CGFloat
 }
 
-
-
-//class ChannelListViewModel: ObservableObject {
-//    @Published var content: Content
-//    init(_ content: Content) {
-//        self.content = content
-//    }
-//    func updateVolumeForSound(channel: Channel, sound: Sound, value: CGFloat) {
-//        // should probably do this in a safer way
-//        let channelIndex = content.channels.firstIndex { $0.title == channel.title }!
-//        let soundIndex = (content.channels[channelIndex].sounds?.firstIndex { $0.title == sound.title })!
-//        content.channels[channelIndex].sounds?[soundIndex].volume = value
-//        ContentLoader.write(content: content)
-//    }
-//}
-
 class ChannelListViewModel: ObservableObject {
     @Published var channelList: ChannelList {
         didSet {
@@ -50,28 +34,12 @@ class ChannelListViewModel: ObservableObject {
         self.channelList = ContentLoader.load()
     }
     func update(channel: Channel, sound: Sound, volume: CGFloat) {
-        var cl = self.channelList
         let channelIndex = channelList.channels.firstIndex { $0.title == channel.title }!
         let soundIndex = (channelList.channels[channelIndex].sounds?.firstIndex { $0.title == sound.title })!
         self.channelList.channels[channelIndex].sounds?[soundIndex].volume = volume
     }
 }
 
-class ChannelViewModel: ObservableObject {
-    @Published var channel: Channel
-    
-    init(channel: Channel) {
-        self.channel = channel
-    }
-}
-
-class SoundViewModel: ObservableObject {
-    @Published var sound: Sound
-    
-    init(sound: Sound) {
-        self.sound = sound
-    }
-}
 
 class ContentLoader {
     static private var plistURL: URL {
