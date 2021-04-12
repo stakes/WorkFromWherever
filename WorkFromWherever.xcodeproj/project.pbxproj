@@ -11,6 +11,7 @@
 		C80E082826229F470064AACC /* FaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C882DBCD2622997300D9F35E /* FaderView.swift */; };
 		C80E082926229F470064AACC /* TrackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C882DBC92622997300D9F35E /* TrackView.swift */; };
 		C80E082A26229F470064AACC /* SelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C882DBCA2622997300D9F35E /* SelectorView.swift */; };
+		C80E082F2623CB2F0064AACC /* MasterVolumeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C80E082E2623CB2F0064AACC /* MasterVolumeView.swift */; };
 		C836D78D25EC535E0015160F /* VolumeKnobView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C836D78C25EC535E0015160F /* VolumeKnobView.swift */; };
 		C836D7E926005C580015160F /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = C836D7E826005C580015160F /* Track.swift */; };
 		C836D7EC26005C5E0015160F /* ChannelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C836D7EB26005C5E0015160F /* ChannelData.swift */; };
@@ -24,6 +25,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C80E082E2623CB2F0064AACC /* MasterVolumeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterVolumeView.swift; sourceTree = "<group>"; };
 		C836D78C25EC535E0015160F /* VolumeKnobView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolumeKnobView.swift; sourceTree = "<group>"; };
 		C836D7E826005C580015160F /* Track.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
 		C836D7EB26005C5E0015160F /* ChannelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelData.swift; sourceTree = "<group>"; };
@@ -74,8 +76,9 @@
 			isa = PBXGroup;
 			children = (
 				C882DBCC2622997300D9F35E /* ContentView.swift */,
-				C882DBC92622997300D9F35E /* TrackView.swift */,
 				C882DBCA2622997300D9F35E /* SelectorView.swift */,
+				C80E082E2623CB2F0064AACC /* MasterVolumeView.swift */,
+				C882DBC92622997300D9F35E /* TrackView.swift */,
 				C882DBCB2622997300D9F35E /* FaderStackView.swift */,
 				C882DBCD2622997300D9F35E /* FaderView.swift */,
 				C836D78C25EC535E0015160F /* VolumeKnobView.swift */,
@@ -183,6 +186,7 @@
 				C882DBD326229A0C00D9F35E /* ContentView.swift in Sources */,
 				C836D7E926005C580015160F /* Track.swift in Sources */,
 				C836D7EC26005C5E0015160F /* ChannelData.swift in Sources */,
+				C80E082F2623CB2F0064AACC /* MasterVolumeView.swift in Sources */,
 				C836D7EF26005C660015160F /* SoundManager.swift in Sources */,
 				C836D7FB2606D4EC0015160F /* Tooltip.swift in Sources */,
 				C80E082A26229F470064AACC /* SelectorView.swift in Sources */,

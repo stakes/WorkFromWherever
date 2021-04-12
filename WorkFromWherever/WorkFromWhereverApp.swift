@@ -23,7 +23,7 @@ struct WorkFromWhereverApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .frame(width: 518)
+                .frame(width: 693)
                 .background(Color.blue)
                 .edgesIgnoringSafeArea(.all)
                 .padding(.top, -32)

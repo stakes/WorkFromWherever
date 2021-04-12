@@ -18,6 +18,7 @@ struct FaderStackView: View {
                 ForEach (channelListViewModel.channelList.channels[selectedChannelIndex].sounds ?? []) { sound in
                     TrackView(soundManager: soundManager, channelListViewModel: channelListViewModel, channel: channelListViewModel.channelList.channels[selectedChannelIndex], sound: sound)
                 }
+                MasterVolumeView()
             }
         }
     }
