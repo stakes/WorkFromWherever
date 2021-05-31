@@ -1,5 +1,5 @@
 //
-//  Tooltip.swift
+//  TooltipView.swift
 //  WorkFromWherever
 //
 //  Created by Jay Stakelon on 3/20/21.

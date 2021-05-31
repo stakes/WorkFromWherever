@@ -17,7 +17,6 @@ struct SelectorView: View {
                 Text(channelListViewModel.channelList.channels[selectedChannelIndex].title).font(.system(.title3, design: .monospaced)).foregroundColor(.white).padding(8).padding(.leading, 12).opacity(0.8)
                 Spacer()
                 
-                
                 Button(action: {
                     if (self.selectedChannelIndex > 0) {
                         self.soundManager.removeAllTracks()

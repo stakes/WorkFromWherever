@@ -7,13 +7,17 @@
 
 import SwiftUI
 
-final class AppDelegate: NSObject, NSApplicationDelegate {
+final class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
     func applicationDidFinishLaunching(_ notification: Notification) {
         if let window = NSApplication.shared.windows.first {
             window.titlebarAppearsTransparent = true // as stated
-                window.titleVisibility = .hidden         // no title - all in content
+            window.titleVisibility = .hidden         // no title - all in content
             window.styleMask.remove(.resizable)
         }
+    }
+    func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool {
+        NSApplication.shared.terminate(self)
+        return true
     }
 }
 
