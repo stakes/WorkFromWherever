@@ -3,3 +3,10 @@
 @import "tailwindcss/utilities";
 
 /* ------ Add your CSS below this line (or @import your other CSS files). ------- */
+@layer base {
+    @font-face {
+        font-family: 'Puget';
+        src: url(./assets/fonts/Puget-Regular.woff2) format('woff2');
+        src: url(./assets/fonts/Puget-Regular.woff) format('woff');
+    }
+}

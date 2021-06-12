@@ -1,6 +1,8 @@
 // This file controls how Tailwind processes your CSS. For details, see
 // https://tailwindcss.com/docs/configuration
 
+const defaultTheme = require('tailwindcss/defaultTheme')
+
 module.exports = 
 {
   //
@@ -19,7 +21,11 @@ module.exports =
   // to enable the settings or customizations you need.
   // 
   theme: {
-    extend: {}
+    extend: {
+      fontFamily: {
+        'title': ['Puget', ...defaultTheme.fontFamily.serif]
+      }
+    }
   },
 
   variants: {},

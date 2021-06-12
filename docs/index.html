@@ -49,17 +49,30 @@
     <div class="flex flex-col h-screen">
 
       <div class="flex-none h-1/5 text-center flex flex-col justify-end pb-6">
-        <h1 class="text-4xl font-black">WorkFromWherever</h1>
+        <h1 class="mx-auto text-3xl md:text-6xl font-black font-title">WorkFromWherever</h1>
       </div>
 
-      <div class="flex-grow items-center justify-center text-center flex flex-col">
+      <div class="flex md:flex-grow items-center justify-center text-center flex-col px-4">
         <img width="630" height="327" src="assets/wfw-app.png" class="" />
-        <p class="text-2xl font-normal max-w-sm">A little sound machine for your Mac that takes you places</p>
-        <div class="mt-36 mb-8 max-w-sm">
-          <p class="">Inspired by I Love My Bar</p>
-          <p class="">UI shamelessly ripped from the OP-1</p>
-          <p class="">Sounds from Freesounds.com and Splice</p>
-          <p class="">Made by @stakelon to distract myself during that time I was stuck in the house for a whole year</p>
+        <p class="text-xl md:text-2xl font-normal max-w-sm">A little sound machine for your Mac that takes you places</p>
+        <div class="pt-6 pb-2 grid grid-cols-1 gap-2">
+          <a class="w-auto" href="https://github.com/stakes/Notebar/releases/download/1.0-alpha/Notebar.zip">
+            <button class="w-full bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded">
+              Download for macOS
+            </button>
+          </a>
+          <a class="w-auto" href="https://github.com/stakes/Notebar">
+            <button class="w-full bg-gray-300 hover:bg-gray-400 text-gray-700 font-bold py-2 px-4 rounded">
+              <img class="inline align-text-top mr-1" src="assets/GitHub-Mark.svg" alt="Github mark" width="18" height="18" />Source on Github
+            </button>
+          </a>
+        </div>
+
+        <div class="mt-36 mb-8 max-w-sm text-sm">
+          <p class="mb-1">Inspired by I Love My Bar</p>
+          <p class="mb-1">UI shamelessly ripped from the OP-1</p>
+          <p class="mb-1">Sounds from Freesounds.com and Splice</p>
+          <p class="mb-1">Made by @stakelon to distract myself when I was stuck in the house for a whole year</p>
         </div>
       </div>
 
