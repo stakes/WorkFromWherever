@@ -44,7 +44,34 @@
     <link rel="stylesheet" href="css/main.css">
     <title>WorkFromWherever</title>
   </head>
+
 <body class="antialiased">
+
+  <div class="morph-wrapper">
+    <div class="morph-01">
+      <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="Gradient01" x1="0" x2="0" y1="0" y2="1">
+            <stop offset="0%" stop-color="#FCEB51"/>
+            <stop offset="100%" stop-color="#E942E3"/>
+          </linearGradient>
+        </defs>
+        <path fill="url(#Gradient01)"  d="M49.9,-59.9C64.2,-47.5,75,-31.3,79.6,-12.9C84.1,5.5,82.5,26.1,72.8,41.4C63.2,56.7,45.6,66.8,26.9,73.5C8.1,80.2,-11.7,83.5,-30.3,78.7C-48.9,73.9,-66.2,61.1,-71.7,44.7C-77.2,28.3,-70.9,8.5,-64.3,-8.3C-57.7,-25,-50.8,-38.7,-40,-51.8C-29.3,-64.9,-14.6,-77.4,1.6,-79.3C17.8,-81.2,35.6,-72.4,49.9,-59.9Z" transform="translate(100 100)" />
+      </svg>
+    </div>
+    <div class="morph-02">
+      <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="Gradient02" x1="0" x2="0" y1="0" y2="1">
+            <stop offset="0%" stop-color="#EF9DF8"/>
+            <stop offset="100%" stop-color="#A99EF8"/>
+          </linearGradient>
+        </defs>
+        <path fill="url(#Gradient02)" d="M35.9,-54.7C44.6,-43.1,48.4,-30,55.4,-16.2C62.5,-2.3,72.7,12.3,73.5,28.2C74.3,44.1,65.6,61.2,51.8,69.6C38,77.9,19,77.4,4.5,71.2C-10,65,-19.9,53,-32.4,44.3C-44.9,35.5,-60,30,-67.4,19.1C-74.7,8.2,-74.4,-7.9,-69.3,-22.2C-64.2,-36.5,-54.4,-48.8,-42,-59.3C-29.7,-69.7,-14.8,-78.1,-0.6,-77.2C13.6,-76.4,27.2,-66.2,35.9,-54.7Z" transform="translate(100 100)" />
+      </svg>
+    </div>
+  </div>
+
   <div class="container mx-auto">
     <div class="flex flex-col h-screen">
 
@@ -54,6 +81,7 @@
 
       <div class="flex md:flex-grow items-center justify-center text-center flex-col px-4">
         <img width="630" height="327" src="assets/wfw-app.png" class="" />
+       
         <p class="text-xl md:text-2xl font-normal max-w-sm">A little sound machine for your Mac that takes you places</p>
         <div class="pt-6 pb-2 grid grid-cols-1 gap-2">
           <a class="w-auto" href="https://github.com/stakes/Notebar/releases/download/1.0-alpha/Notebar.zip">
@@ -68,15 +96,17 @@
           </a>
         </div>
 
-        <div class="mt-36 mb-8 max-w-sm text-sm">
-          <p class="mb-1">Inspired by I Love My Bar</p>
-          <p class="mb-1">UI shamelessly ripped from the OP-1</p>
-          <p class="mb-1">Sounds from Freesounds.com and Splice</p>
-          <p class="mb-1">Made by @stakelon to distract myself when I was stuck in the house for a whole year</p>
+        <div class="mt-36 mb-8 max-w-sm text-xs md:text-sm">
+          <p class="mb-2">Inspired by <a class="text-link" href="https://imissmybar.com/">I Miss My Bar</a></p>
+          <p class="mb-2">UI shamelessly ripped from the <a class="text-link" href="https://teenage.engineering/products/op-1">OP-1</a></p>
+          <p class="mb-2">Sounds from <a class="text-link" href="https://freesound.org/">Freesound</a> and <a class="text-link" href="https://splice.com/">Splice</a></p>
+          <p class="mb-2">Made by <a class="text-link" href="https://twitter.com/stakelon">@stakelon</a><br class="inline sm:hidden"/><span class="hidden sm:inline"> | </span><a class="text-link" href="https://github.com/stakes">github.com/stakes</a></p>
         </div>
       </div>
 
     </div>
   </div>
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.0.1/lib/anime.min.js"></script>
+  <script type="module" src="js/page.js"></script>
 </body>
 </html>
