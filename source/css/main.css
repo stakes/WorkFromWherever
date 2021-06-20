@@ -31,3 +31,10 @@ a.text-link {
     opacity: .5;
     z-index: -1;
 }
+
+@media (max-width: 639px) {
+    .morph-01, .morph-02 {
+        width: 400px;
+        margin-left: -200px;
+    }
+}

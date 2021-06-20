@@ -153,7 +153,7 @@
       "hM" : 0,
       "oA" : 0,
       "oAP" : "\/docs\/assets\/fonts\/Puget-Regular.woff",
-      "oF" : 0
+      "oF" : 1
     },
     "\/source\/assets\/fonts\/Puget-Regular.woff2" : {
       "cB" : 0,
@@ -161,15 +161,15 @@
       "hM" : 0,
       "oA" : 0,
       "oAP" : "\/docs\/assets\/fonts\/Puget-Regular.woff2",
-      "oF" : 0
+      "oF" : 1
     },
     "\/source\/assets\/GitHub-Mark.svg" : {
       "ft" : 2097152,
       "miP" : 0,
-      "oA" : 2,
+      "oA" : 0,
       "oAP" : "\/docs\/assets\/GitHub-Mark.svg",
-      "oF" : 0,
-      "opt" : 0,
+      "oF" : 1,
+      "opt" : 1,
       "plM" : 52780316221407,
       "prP" : 0
     },
@@ -178,7 +178,7 @@
       "iS" : 52743,
       "oA" : 0,
       "oAP" : "\/docs\/assets\/wfw-app.png",
-      "oF" : 0,
+      "oF" : 1,
       "oIPL" : 0,
       "opt" : 1,
       "oT" : 1,
@@ -255,7 +255,7 @@
       "mi" : 1,
       "oA" : 0,
       "oAP" : "\/docs\/js\/page.js",
-      "oF" : 0,
+      "oF" : 1,
       "sC" : 3,
       "tS" : 0
     },
@@ -634,7 +634,7 @@
     "displayValueWasSetByUser" : 1,
     "iconImageName" : "\/source\/apple-touch-icon.png",
     "iconImageWasSetByUser" : 0,
-    "lastBuiltDate" : 645234631.34256005
+    "lastBuiltDate" : 645923213.588732
   },
   "projectSettings" : {
     "abortBuildOnError" : 1,
@@ -928,7 +928,7 @@
     "bowerUseExactVersion" : 0,
     "browserRefreshDelay" : 0,
     "browserslistString" : ">0.2%, last 2 versions, Firefox ESR, not dead",
-    "buildEnvironment" : 1,
+    "buildEnvironment" : 0,
     "buildFolderActive" : 1,
     "buildFolderName" : "docs",
     "cleanBuild" : 1,
@@ -1073,7 +1073,7 @@
     "cssoForceMediaMerge" : 0,
     "cssoRestructure" : 1,
     "environmentVariableEntries" : [
-      "NODE_ENV:::development"
+      "NODE_ENV:::production"
     ],
     "esLintConfigFileHandlingType" : 0,
     "esLintECMAVersion" : 7,
