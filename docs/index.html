@@ -47,31 +47,6 @@
 
 <body class="antialiased">
 
-  <div class="morph-wrapper">
-    <div class="morph-01">
-      <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <linearGradient id="Gradient01" x1="0" x2="0" y1="0" y2="1">
-            <stop offset="0%" stop-color="#FCEB51"/>
-            <stop offset="100%" stop-color="#E942E3"/>
-          </linearGradient>
-        </defs>
-        <path fill="url(#Gradient01)" d="M38,-56.9C48.7,-44.5,56.7,-32.7,65.1,-18.4C73.5,-4.1,82.5,12.8,76.7,23.2C70.9,33.5,50.4,37.4,35.2,42.1C20,46.8,10,52.5,-0.8,53.6C-11.6,54.7,-23.3,51.4,-35.3,45.6C-47.3,39.9,-59.6,31.6,-66.1,19.6C-72.5,7.6,-73,-8.1,-69.7,-24C-66.4,-39.9,-59.3,-55.9,-47.1,-67.9C-34.8,-79.9,-17.4,-87.9,-1.9,-85.3C13.6,-82.7,27.2,-69.4,38,-56.9Z" transform="translate(100 100)" />
-      </svg>
-    </div>
-    <div class="morph-02">
-      <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <linearGradient id="Gradient02" x1="0" x2="0" y1="0" y2="1">
-            <stop offset="0%" stop-color="#EF9DF8"/>
-            <stop offset="100%" stop-color="#A99EF8"/>
-          </linearGradient>
-        </defs>
-        <path fill="url(#Gradient02)" d="M41.2,-41.1C56.8,-25.5,75.3,-12.8,78,2.7C80.8,18.2,67.8,36.5,52.1,46.4C36.5,56.3,18.2,57.9,3,54.9C-12.3,51.9,-24.6,44.4,-38.9,34.5C-53.2,24.6,-69.5,12.3,-72.4,-2.8C-75.2,-17.9,-64.5,-35.9,-50.2,-51.4C-35.9,-67,-17.9,-80.2,-2.6,-77.6C12.8,-75,25.5,-56.7,41.2,-41.1Z" transform="translate(100 100)" />
-      </svg>
-    </div>
-  </div>
-
   <div class="container mx-auto">
     <div class="flex flex-col h-screen">
 
@@ -80,7 +55,35 @@
       </div>
 
       <div class="flex md:flex-grow items-center justify-center text-center flex-col px-4">
-        <img width="630" height="327" src="assets/wfw-app.png" class="" />
+
+        <div class="relative">
+          <div class="morph-wrapper">
+            <div class="morph-01">
+              <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <linearGradient id="Gradient01" x1="0" x2="0" y1="0" y2="1">
+                    <stop offset="0%" stop-color="#FCEB51"/>
+                    <stop offset="100%" stop-color="#E942E3"/>
+                  </linearGradient>
+                </defs>
+                <path fill="url(#Gradient01)" d="M38,-56.9C48.7,-44.5,56.7,-32.7,65.1,-18.4C73.5,-4.1,82.5,12.8,76.7,23.2C70.9,33.5,50.4,37.4,35.2,42.1C20,46.8,10,52.5,-0.8,53.6C-11.6,54.7,-23.3,51.4,-35.3,45.6C-47.3,39.9,-59.6,31.6,-66.1,19.6C-72.5,7.6,-73,-8.1,-69.7,-24C-66.4,-39.9,-59.3,-55.9,-47.1,-67.9C-34.8,-79.9,-17.4,-87.9,-1.9,-85.3C13.6,-82.7,27.2,-69.4,38,-56.9Z" transform="translate(100 100)" />
+              </svg>
+            </div>
+            <div class="morph-02">
+              <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <linearGradient id="Gradient02" x1="0" x2="0" y1="0" y2="1">
+                    <stop offset="0%" stop-color="#EF9DF8"/>
+                    <stop offset="100%" stop-color="#A99EF8"/>
+                  </linearGradient>
+                </defs>
+                <path fill="url(#Gradient02)" d="M41.2,-41.1C56.8,-25.5,75.3,-12.8,78,2.7C80.8,18.2,67.8,36.5,52.1,46.4C36.5,56.3,18.2,57.9,3,54.9C-12.3,51.9,-24.6,44.4,-38.9,34.5C-53.2,24.6,-69.5,12.3,-72.4,-2.8C-75.2,-17.9,-64.5,-35.9,-50.2,-51.4C-35.9,-67,-17.9,-80.2,-2.6,-77.6C12.8,-75,25.5,-56.7,41.2,-41.1Z" transform="translate(100 100)" />
+              </svg>
+            </div>
+          </div>
+          <img width="630" height="327" src="assets/wfw-app.png" class="" />
+        </div>
+        
        
         <p class="text-xl md:text-2xl font-normal max-w-sm">A little sound machine for your Mac that takes you places</p>
         <div class="pt-6 pb-2 grid grid-cols-1 gap-2">
