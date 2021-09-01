@@ -6,8 +6,8 @@
 @layer base {
     @font-face {
         font-family: 'Puget';
-        src: url(/assets/fonts/Puget-Regular.woff2) format('woff2');
-        src: url(/assets/fonts/Puget-Regular.woff) format('woff');
+        src: url(../assets/fonts/Puget-Regular.woff2) format('woff2');
+        src: url(../assets/fonts/Puget-Regular.woff) format('woff');
     }
 }
 
