@@ -38,7 +38,7 @@
 		C882DBCB2622997300D9F35E /* FaderStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaderStackView.swift; sourceTree = "<group>"; };
 		C882DBCC2622997300D9F35E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		C882DBCD2622997300D9F35E /* FaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaderView.swift; sourceTree = "<group>"; };
-		C89917D925E326B2002D1D66 /* WorkFromWherever.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WorkFromWherever.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C89917D925E326B2002D1D66 /* WfW.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WfW.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C89917DC25E326B2002D1D66 /* WorkFromWhereverApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkFromWhereverApp.swift; sourceTree = "<group>"; };
 		C89917E025E326B3002D1D66 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C89917E325E326B3002D1D66 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -71,7 +71,7 @@
 		C89917DA25E326B2002D1D66 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				C89917D925E326B2002D1D66 /* WorkFromWherever.app */,
+				C89917D925E326B2002D1D66 /* WfW.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -137,7 +137,7 @@
 			packageProductDependencies = (
 			);
 			productName = WorkFromWherever;
-			productReference = C89917D925E326B2002D1D66 /* WorkFromWherever.app */;
+			productReference = C89917D925E326B2002D1D66 /* WfW.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -335,6 +335,7 @@
 				CODE_SIGN_ENTITLEMENTS = WorkFromWherever/WorkFromWherever.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"WorkFromWherever/Preview Content\"";
 				DEVELOPMENT_TEAM = F725AN38JF;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -345,9 +346,9 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				MARKETING_VERSION = "1.01-alpha";
+				MARKETING_VERSION = "1.02-alpha";
 				PRODUCT_BUNDLE_IDENTIFIER = com.stakelon.WorkFromWherever;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = WfW;
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -360,6 +361,7 @@
 				CODE_SIGN_ENTITLEMENTS = WorkFromWherever/WorkFromWherever.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"WorkFromWherever/Preview Content\"";
 				DEVELOPMENT_TEAM = F725AN38JF;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -370,9 +372,9 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				MARKETING_VERSION = "1.01-alpha";
+				MARKETING_VERSION = "1.02-alpha";
 				PRODUCT_BUNDLE_IDENTIFIER = com.stakelon.WorkFromWherever;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = WfW;
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
