@@ -346,7 +346,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				MARKETING_VERSION = "1.02-alpha";
+				MARKETING_VERSION = "1.03-alpha";
 				PRODUCT_BUNDLE_IDENTIFIER = com.stakelon.WorkFromWherever;
 				PRODUCT_NAME = WfW;
 				SWIFT_VERSION = 5.0;
@@ -372,7 +372,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				MARKETING_VERSION = "1.02-alpha";
+				MARKETING_VERSION = "1.03-alpha";
 				PRODUCT_BUNDLE_IDENTIFIER = com.stakelon.WorkFromWherever;
 				PRODUCT_NAME = WfW;
 				SWIFT_VERSION = 5.0;
