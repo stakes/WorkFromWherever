@@ -17,22 +17,17 @@
       "oAP" : "\/docs\/.gitignore",
       "oF" : 1
     },
+    "\/docs" : {
+      "ft" : 65536,
+      "oA" : 1,
+      "oAP" : "\/docs\/docs",
+      "oF" : 0
+    },
     "\/node_modules" : {
       "ft" : 65536,
       "oA" : 1,
       "oAP" : "\/docs\/node_modules",
       "oF" : 0
-    },
-    "\/node_modules\/.\/animejs\/lib\/anime.es.js" : {
-      "bF" : 0,
-      "ft" : 64,
-      "ma" : 3,
-      "mi" : 1,
-      "oA" : 1,
-      "oAP" : "\/docs\/node_modules\/.\/animejs\/lib\/anime.es.js",
-      "oF" : 0,
-      "sC" : 3,
-      "tS" : 0
     },
     "\/node_modules\/animejs\/lib\/anime.es.js" : {
       "bF" : 0,
@@ -173,6 +168,32 @@
       "plM" : 52780316221407,
       "prP" : 0
     },
+    "\/source\/assets\/wfw-1024x512.jpg" : {
+      "ft" : 16384,
+      "iS" : 204992,
+      "jF" : 0,
+      "oA" : 0,
+      "oAP" : "\/docs\/assets\/wfw-1024x512.jpg",
+      "oF" : 1,
+      "oIPL" : 0,
+      "opt" : 1,
+      "ou" : "lpckwebp-none",
+      "q" : 100,
+      "rq" : 75
+    },
+    "\/source\/assets\/wfw-1024x1024.jpg" : {
+      "ft" : 16384,
+      "iS" : 326568,
+      "jF" : 0,
+      "oA" : 0,
+      "oAP" : "\/docs\/assets\/wfw-1024x1024.jpg",
+      "oF" : 1,
+      "oIPL" : 0,
+      "opt" : 1,
+      "ou" : "lpckwebp-none",
+      "q" : 100,
+      "rq" : 75
+    },
     "\/source\/assets\/wfw-app.png" : {
       "ft" : 32768,
       "iS" : 52743,
@@ -185,6 +206,14 @@
       "ou" : "lpckwebp-none",
       "q" : 100,
       "rq" : 75
+    },
+    "\/source\/assets\/wfw.mp4" : {
+      "cB" : 0,
+      "ft" : 8192,
+      "hM" : 0,
+      "oA" : 0,
+      "oAP" : "\/docs\/assets\/wfw.mp4",
+      "oF" : 0
     },
     "\/source\/browserconfig.xml" : {
       "cB" : 0,
@@ -300,326 +329,6 @@
       "oF" : 1,
       "sC" : 3,
       "tS" : 0
-    },
-    "\/WorkFromWherever.xcodeproj\/project.xcworkspace\/xcuserdata\/stakelon.xcuserdatad\/UserInterfaceState.xcuserstate" : {
-      "cB" : 0,
-      "ft" : 8192,
-      "hM" : 0,
-      "oA" : 0,
-      "oAP" : "\/docs\/WorkFromWherever.xcodeproj\/project.xcworkspace\/xcuserdata\/stakelon.xcuserdatad\/UserInterfaceState.xcuserstate",
-      "oF" : 0
-    },
-    "\/WorkFromWherever\/Audio\/beach-birds.wav" : {
-      "cB" : 0,
-      "ft" : 8192,
-      "hM" : 0,
-      "oA" : 1,
-      "oAP" : "\/docs\/WorkFromWherever\/Audio\/beach-birds.wav",
-      "oF" : 1
-    },
-    "\/WorkFromWherever\/Audio\/beach-breeze.wav" : {
-      "cB" : 0,
-      "ft" : 8192,
-      "hM" : 0,
-      "oA" : 1,
-      "oAP" : "\/docs\/WorkFromWherever\/Audio\/beach-breeze.wav",
-      "oF" : 1
-    },
-    "\/WorkFromWherever\/Audio\/beach-dog.wav" : {
-      "cB" : 0,
-      "ft" : 8192,
-      "hM" : 0,
-      "oA" : 1,
-      "oAP" : "\/docs\/WorkFromWherever\/Audio\/beach-dog.wav",
-      "oF" : 1
-    },
-    "\/WorkFromWherever\/Audio\/beach-waves.wav" : {
-      "cB" : 0,
-      "ft" : 8192,
-      "hM" : 0,
-      "oA" : 1,
-      "oAP" : "\/docs\/WorkFromWherever\/Audio\/beach-waves.wav",
-      "oF" : 1
-    },
-    "\/WorkFromWherever\/Audio\/camping-crickets.wav" : {
-      "cB" : 0,
-      "ft" : 8192,
-      "hM" : 0,
-      "oA" : 1,
-      "oAP" : "\/docs\/WorkFromWherever\/Audio\/camping-crickets.wav",
-      "oF" : 1
-    },
-    "\/WorkFromWherever\/Audio\/camping-fire.wav" : {
-      "cB" : 0,
-      "ft" : 8192,
-      "hM" : 0,
-      "oA" : 1,
-      "oAP" : "\/docs\/WorkFromWherever\/Audio\/camping-fire.wav",
-      "oF" : 1
-    },
-    "\/WorkFromWherever\/Audio\/camping-rain.wav" : {
-      "cB" : 0,
-      "ft" : 8192,
-      "hM" : 0,
-      "oA" : 1,
-      "oAP" : "\/docs\/WorkFromWherever\/Audio\/camping-rain.wav",
-      "oF" : 1
-    },
-    "\/WorkFromWherever\/Audio\/camping-trees.wav" : {
-      "cB" : 0,
-      "ft" : 8192,
-      "hM" : 0,
-      "oA" : 1,
-      "oAP" : "\/docs\/WorkFromWherever\/Audio\/camping-trees.wav",
-      "oF" : 1
-    },
-    "\/WorkFromWherever\/Audio\/cats-fuzzy.wav" : {
-      "cB" : 0,
-      "ft" : 8192,
-      "hM" : 0,
-      "oA" : 1,
-      "oAP" : "\/docs\/WorkFromWherever\/Audio\/cats-fuzzy.wav",
-      "oF" : 1
-    },
-    "\/WorkFromWherever\/Audio\/cats-lion.wav" : {
-      "cB" : 0,
-      "ft" : 8192,
-      "hM" : 0,
-      "oA" : 1,
-      "oAP" : "\/docs\/WorkFromWherever\/Audio\/cats-lion.wav",
-      "oF" : 1
-    },
-    "\/WorkFromWherever\/Audio\/cats-purrito.wav" : {
-      "cB" : 0,
-      "ft" : 8192,
-      "hM" : 0,
-      "oA" : 1,
-      "oAP" : "\/docs\/WorkFromWherever\/Audio\/cats-purrito.wav",
-      "oF" : 1
-    },
-    "\/WorkFromWherever\/Audio\/cats-victor.wav" : {
-      "cB" : 0,
-      "ft" : 8192,
-      "hM" : 0,
-      "oA" : 1,
-      "oAP" : "\/docs\/WorkFromWherever\/Audio\/cats-victor.wav",
-      "oF" : 1
-    },
-    "\/WorkFromWherever\/Audio\/coffeeshop-barista.wav" : {
-      "cB" : 0,
-      "ft" : 8192,
-      "hM" : 0,
-      "oA" : 1,
-      "oAP" : "\/docs\/WorkFromWherever\/Audio\/coffeeshop-barista.wav",
-      "oF" : 1
-    },
-    "\/WorkFromWherever\/Audio\/coffeeshop-kitchen.wav" : {
-      "cB" : 0,
-      "ft" : 8192,
-      "hM" : 0,
-      "oA" : 1,
-      "oAP" : "\/docs\/WorkFromWherever\/Audio\/coffeeshop-kitchen.wav",
-      "oF" : 1
-    },
-    "\/WorkFromWherever\/Audio\/coffeeshop-people.wav" : {
-      "cB" : 0,
-      "ft" : 8192,
-      "hM" : 0,
-      "oA" : 1,
-      "oAP" : "\/docs\/WorkFromWherever\/Audio\/coffeeshop-people.wav",
-      "oF" : 1
-    },
-    "\/WorkFromWherever\/Audio\/coffeeshop-street.wav" : {
-      "cB" : 0,
-      "ft" : 8192,
-      "hM" : 0,
-      "oA" : 1,
-      "oAP" : "\/docs\/WorkFromWherever\/Audio\/coffeeshop-street.wav",
-      "oF" : 1
-    },
-    "\/WorkFromWherever\/Audio\/meow.wav" : {
-      "cB" : 0,
-      "ft" : 8192,
-      "hM" : 0,
-      "oA" : 1,
-      "oAP" : "\/docs\/WorkFromWherever\/Audio\/meow.wav",
-      "oF" : 1
-    },
-    "\/WorkFromWherever\/Audio\/morning-birds.wav" : {
-      "cB" : 0,
-      "ft" : 8192,
-      "hM" : 0,
-      "oA" : 1,
-      "oAP" : "\/docs\/WorkFromWherever\/Audio\/morning-birds.wav",
-      "oF" : 1
-    },
-    "\/WorkFromWherever\/Audio\/morning-field.wav" : {
-      "cB" : 0,
-      "ft" : 8192,
-      "hM" : 0,
-      "oA" : 1,
-      "oAP" : "\/docs\/WorkFromWherever\/Audio\/morning-field.wav",
-      "oF" : 1
-    },
-    "\/WorkFromWherever\/Audio\/morning-lake.wav" : {
-      "cB" : 0,
-      "ft" : 8192,
-      "hM" : 0,
-      "oA" : 1,
-      "oAP" : "\/docs\/WorkFromWherever\/Audio\/morning-lake.wav",
-      "oF" : 1
-    },
-    "\/WorkFromWherever\/Audio\/morning-sunshine.wav" : {
-      "cB" : 0,
-      "ft" : 8192,
-      "hM" : 0,
-      "oA" : 1,
-      "oAP" : "\/docs\/WorkFromWherever\/Audio\/morning-sunshine.wav",
-      "oF" : 1
-    },
-    "\/WorkFromWherever\/Audio\/office-ac.wav" : {
-      "cB" : 0,
-      "ft" : 8192,
-      "hM" : 0,
-      "oA" : 1,
-      "oAP" : "\/docs\/WorkFromWherever\/Audio\/office-ac.wav",
-      "oF" : 1
-    },
-    "\/WorkFromWherever\/Audio\/office-business.wav" : {
-      "cB" : 0,
-      "ft" : 8192,
-      "hM" : 0,
-      "oA" : 1,
-      "oAP" : "\/docs\/WorkFromWherever\/Audio\/office-business.wav",
-      "oF" : 1
-    },
-    "\/WorkFromWherever\/Audio\/office-clicky.wav" : {
-      "cB" : 0,
-      "ft" : 8192,
-      "hM" : 0,
-      "oA" : 1,
-      "oAP" : "\/docs\/WorkFromWherever\/Audio\/office-clicky.wav",
-      "oF" : 1
-    },
-    "\/WorkFromWherever\/Audio\/office-kitchen.wav" : {
-      "cB" : 0,
-      "ft" : 8192,
-      "hM" : 0,
-      "oA" : 1,
-      "oAP" : "\/docs\/WorkFromWherever\/Audio\/office-kitchen.wav",
-      "oF" : 1
-    },
-    "\/WorkFromWherever\/Audio\/park-ducks.wav" : {
-      "cB" : 0,
-      "ft" : 8192,
-      "hM" : 0,
-      "oA" : 1,
-      "oAP" : "\/docs\/WorkFromWherever\/Audio\/park-ducks.wav",
-      "oF" : 1
-    },
-    "\/WorkFromWherever\/Audio\/park-market.wav" : {
-      "cB" : 0,
-      "ft" : 8192,
-      "hM" : 0,
-      "oA" : 1,
-      "oAP" : "\/docs\/WorkFromWherever\/Audio\/park-market.wav",
-      "oF" : 1
-    },
-    "\/WorkFromWherever\/Audio\/park-traffic.wav" : {
-      "cB" : 0,
-      "ft" : 8192,
-      "hM" : 0,
-      "oA" : 1,
-      "oAP" : "\/docs\/WorkFromWherever\/Audio\/park-traffic.wav",
-      "oF" : 1
-    },
-    "\/WorkFromWherever\/Audio\/park-vibes.wav" : {
-      "cB" : 0,
-      "ft" : 8192,
-      "hM" : 0,
-      "oA" : 1,
-      "oAP" : "\/docs\/WorkFromWherever\/Audio\/park-vibes.wav",
-      "oF" : 1
-    },
-    "\/WorkFromWherever\/Audio\/plane-bingbong.wav" : {
-      "cB" : 0,
-      "ft" : 8192,
-      "hM" : 0,
-      "oA" : 1,
-      "oAP" : "\/docs\/WorkFromWherever\/Audio\/plane-bingbong.wav",
-      "oF" : 1
-    },
-    "\/WorkFromWherever\/Audio\/plane-drinks.wav" : {
-      "cB" : 0,
-      "ft" : 8192,
-      "hM" : 0,
-      "oA" : 1,
-      "oAP" : "\/docs\/WorkFromWherever\/Audio\/plane-drinks.wav",
-      "oF" : 1
-    },
-    "\/WorkFromWherever\/Audio\/plane-engine.wav" : {
-      "cB" : 0,
-      "ft" : 8192,
-      "hM" : 0,
-      "oA" : 1,
-      "oAP" : "\/docs\/WorkFromWherever\/Audio\/plane-engine.wav",
-      "oF" : 1
-    },
-    "\/WorkFromWherever\/Audio\/plane-talking.wav" : {
-      "cB" : 0,
-      "ft" : 8192,
-      "hM" : 0,
-      "oA" : 1,
-      "oAP" : "\/docs\/WorkFromWherever\/Audio\/plane-talking.wav",
-      "oF" : 1
-    },
-    "\/WorkFromWherever\/Audio\/purr.wav" : {
-      "cB" : 0,
-      "ft" : 8192,
-      "hM" : 0,
-      "oA" : 1,
-      "oAP" : "\/docs\/WorkFromWherever\/Audio\/purr.wav",
-      "oF" : 1
-    },
-    "\/WorkFromWherever\/Audio\/space-high.wav" : {
-      "cB" : 0,
-      "ft" : 8192,
-      "hM" : 0,
-      "oA" : 1,
-      "oAP" : "\/docs\/WorkFromWherever\/Audio\/space-high.wav",
-      "oF" : 1
-    },
-    "\/WorkFromWherever\/Audio\/space-low.wav" : {
-      "cB" : 0,
-      "ft" : 8192,
-      "hM" : 0,
-      "oA" : 1,
-      "oAP" : "\/docs\/WorkFromWherever\/Audio\/space-low.wav",
-      "oF" : 1
-    },
-    "\/WorkFromWherever\/Audio\/space-mid.wav" : {
-      "cB" : 0,
-      "ft" : 8192,
-      "hM" : 0,
-      "oA" : 1,
-      "oAP" : "\/docs\/WorkFromWherever\/Audio\/space-mid.wav",
-      "oF" : 1
-    },
-    "\/WorkFromWherever\/Audio\/space-superlow.wav" : {
-      "cB" : 0,
-      "ft" : 8192,
-      "hM" : 0,
-      "oA" : 1,
-      "oAP" : "\/docs\/WorkFromWherever\/Audio\/space-superlow.wav",
-      "oF" : 1
-    },
-    "\/WorkFromWherever\/ChannelData.swift" : {
-      "cB" : 0,
-      "ft" : 8192,
-      "hM" : 0,
-      "oA" : 1,
-      "oAP" : "\/docs\/WorkFromWherever\/ChannelData.swift",
-      "oF" : 1
     }
   },
   "hooks" : [
@@ -634,7 +343,7 @@
     "displayValueWasSetByUser" : 1,
     "iconImageName" : "\/source\/apple-touch-icon.png",
     "iconImageWasSetByUser" : 0,
-    "lastBuiltDate" : 645923213.588732
+    "lastBuiltDate" : 656114471.67963803
   },
   "projectSettings" : {
     "abortBuildOnError" : 1,
